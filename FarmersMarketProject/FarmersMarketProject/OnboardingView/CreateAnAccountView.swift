@@ -11,8 +11,8 @@ class CreateAnAccountView: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = 20
         stack.backgroundColor = .white
-        stack.addArrangedSubview(farmerButton)
-        stack.addArrangedSubview(buyerButton)
+        stack.addArrangedSubview(farmerButtonCustom)
+        stack.addArrangedSubview(buyerButtonCustom)
         return stack
     }()
     
@@ -27,52 +27,39 @@ class CreateAnAccountView: UIViewController {
     }()
     
     //MARK: - BUTTONS
-    private lazy var farmerButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 20
-        button.setTitle("FARMER", for: .normal)
-        button.titleLabel?.textColor = .white
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: "Color")
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        button.addTarget(self, action: #selector(farmerButtonPressed), for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var buyerButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 20
-        button.setTitle("BUYER", for: .normal)
-        button.titleLabel?.textColor = .black
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor.white
-        button.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-        button.layer.borderWidth = 3.0
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 20
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        button.addTarget(self, action: #selector(farmerButtonPressed), for: .touchUpInside)
-        return button
-    }()
+    private let farmerButtonCustom = CustomButton()
+    private let buyerButtonCustom = CustomButton()
     
     //MARK: - FUNCTIONS
     @objc private func farmerButtonPressed() {
         
     }
     
+    @objc private func buyerButtonPressed() {
+        
+    }
+    
+    private func setupButton(_ button: UIButton, _ action: Selector, _ title: String, _ color: UIColor, _ backgroundColor: UIColor) {
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.textColor = color
+        button.backgroundColor = backgroundColor
+        button.addTarget(self, action: action, for: .touchUpInside)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
     }
     
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(deliveryPhoto)
         view.addSubview(stackOfButton)
+        
+        setupButton(farmerButtonCustom, #selector(farmerButtonPressed), "FARMER", .white, UIColor(named: "Color") ?? .white)
+        setupButton(buyerButtonCustom, #selector(buyerButtonPressed), "BUYER", .black, .white)
+        buyerButtonCustom.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        buyerButtonCustom.layer.borderWidth = 3.0
         
         NSLayoutConstraint.activate([
             deliveryPhoto.centerXAnchor.constraint(equalTo: view.centerXAnchor),

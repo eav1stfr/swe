@@ -4,20 +4,10 @@ class ViewController: UIViewController {
 
     private var labels: [String] = ["Welcome to Farmer's Market!", "Hello", "Bro bro bro"]
     private var currentIndex = 0
-
-    private lazy var nextButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 20
-        button.setTitle("NEXT", for: .normal)
-        button.titleLabel?.textColor = .white
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: "Color")
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        button.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
-        return button
-    }()
+    
+    private lazy var nextButtonCustom = CustomButton()
+    private let createAccountButtonCustom = CustomButton()
+    private let loginButtonCustom = CustomButton()
     
     private lazy var createAccountButton: UIButton = {
         let button = UIButton()
@@ -69,7 +59,7 @@ class ViewController: UIViewController {
             } else if currentIndex == 2 {
                 self.nextLabel.alpha = 0
                 self.finalLabel.alpha = 1
-                horizontalStackOfViews.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -100).isActive = true
+                horizontalStackOfViews.bottomAnchor.constraint(equalTo: nextButtonCustom.topAnchor, constant: -100).isActive = true
             }
             switch currentIndex {
             case 0:
@@ -195,14 +185,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    
+    private func setupButton(_ button: UIButton, _ action: Selector, _ title: String, _ color: UIColor, _ backgroundColor: UIColor) {
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.textColor = color
+        button.backgroundColor = backgroundColor
+        button.addTarget(self, action: action, for: .touchUpInside)
+    }
 
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(fruitBasketPhoto)
         view.addSubview(currentLabel)
         view.addSubview(horizontalStackOfViews)
-        view.addSubview(nextButton)
         view.addSubview(nextLabel)
+        view.addSubview(nextButtonCustom)
+        
+        
+        setupButton(nextButtonCustom, #selector(nextButtonPressed), "NEXT", .white, UIColor(named: "Color") ?? .white)
 
         NSLayoutConstraint.activate([
             fruitBasketPhoto.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -100),
@@ -215,10 +215,10 @@ class ViewController: UIViewController {
             nextLabel.topAnchor.constraint(equalTo: fruitBasketPhoto.bottomAnchor, constant: -100),
 
             horizontalStackOfViews.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            horizontalStackOfViews.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -50),
+            horizontalStackOfViews.bottomAnchor.constraint(equalTo: nextButtonCustom.topAnchor, constant: -50),
 
-            nextButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+            nextButtonCustom.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            nextButtonCustom.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
         ])
     }
 }
