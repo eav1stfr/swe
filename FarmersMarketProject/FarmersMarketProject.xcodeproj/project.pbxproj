@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AF76EFB22CC2A1E10011284A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB12CC2A1E00011284A /* CustomButton.swift */; };
 		AF76EFB52CC2BA220011284A /* ProgressIndicatorElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB42CC2BA220011284A /* ProgressIndicatorElement.swift */; };
+		AF76EFB72CC2C77D0011284A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB62CC2C77D0011284A /* CustomLabel.swift */; };
+		AF76EFB92CC2D1580011284A /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB82CC2D1580011284A /* CustomImageView.swift */; };
 		AFE8C7932CC030070006E477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7922CC030070006E477 /* AppDelegate.swift */; };
 		AFE8C7952CC030070006E477 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7942CC030070006E477 /* SceneDelegate.swift */; };
 		AFE8C7972CC030070006E477 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7962CC030070006E477 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		AF76EFB12CC2A1E00011284A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AF76EFB42CC2BA220011284A /* ProgressIndicatorElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorElement.swift; sourceTree = "<group>"; };
+		AF76EFB62CC2C77D0011284A /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		AF76EFB82CC2D1580011284A /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		AFE8C78F2CC030070006E477 /* FarmersMarketProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarmersMarketProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE8C7922CC030070006E477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE8C7942CC030070006E477 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 			children = (
 				AF76EFB42CC2BA220011284A /* ProgressIndicatorElement.swift */,
 				AF76EFB12CC2A1E00011284A /* CustomButton.swift */,
+				AF76EFB62CC2C77D0011284A /* CustomLabel.swift */,
+				AF76EFB82CC2D1580011284A /* CustomImageView.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -160,8 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFE8C7972CC030070006E477 /* ViewController.swift in Sources */,
+				AF76EFB92CC2D1580011284A /* CustomImageView.swift in Sources */,
 				AFE8C7932CC030070006E477 /* AppDelegate.swift in Sources */,
 				AF76EFB22CC2A1E10011284A /* CustomButton.swift in Sources */,
+				AF76EFB72CC2C77D0011284A /* CustomLabel.swift in Sources */,
 				AF76EFB52CC2BA220011284A /* ProgressIndicatorElement.swift in Sources */,
 				AFE8C7952CC030070006E477 /* SceneDelegate.swift in Sources */,
 				AFE8C7A72CC0320C0006E477 /* CreateAnAccountView.swift in Sources */,

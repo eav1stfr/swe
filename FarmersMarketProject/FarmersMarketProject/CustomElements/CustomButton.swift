@@ -24,6 +24,6 @@ class CustomButton: UIButton {
         titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 50).isActive = true
-        widthAnchor.constraint(equalToConstant: 200).isActive = true
+        widthAnchor.constraint(equalToConstant: 300).isActive = true
     }
 }

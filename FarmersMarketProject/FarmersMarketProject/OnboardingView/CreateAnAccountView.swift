@@ -2,7 +2,7 @@
 import Foundation
 import UIKit
 
-class CreateAnAccountView: UIViewController {
+final class CreateAnAccountView: UIViewController {
     //MARK: - REGULAR VARS
     //MARK: - VIEWS
     private lazy var stackOfButton: UIStackView = {
@@ -57,7 +57,7 @@ class CreateAnAccountView: UIViewController {
         view.addSubview(stackOfButton)
         
         setupButton(farmerButtonCustom, #selector(farmerButtonPressed), "FARMER", .white, UIColor(named: "Color") ?? .white)
-        setupButton(buyerButtonCustom, #selector(buyerButtonPressed), "BUYER", .black, .white)
+        setupButton(buyerButtonCustom, #selector(buyerButtonPressed), "BUYER", .black, .black)
         buyerButtonCustom.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
         buyerButtonCustom.layer.borderWidth = 3.0
         
@@ -66,7 +66,7 @@ class CreateAnAccountView: UIViewController {
             deliveryPhoto.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -100),
             
             stackOfButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            stackOfButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            stackOfButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
     }
 }

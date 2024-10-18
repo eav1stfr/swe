@@ -1,49 +1,20 @@
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     private var labels: [String] = ["Welcome to Farmer's Market!", "Hello", "Bro bro bro"]
     private var currentIndex = 0
     
-    private lazy var nextButtonCustom = CustomButton()
-    private let createAccountButtonCustom = CustomButton()
-    private let loginButtonCustom = CustomButton()
+    private lazy var nextButton = CustomButton()
+    private let createAccountButton = CustomButton()
+    private let loginButton = CustomButton()
     
-    private lazy var createAccountButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 20
-        button.setTitle("CREATE AN ACCOUNT", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: "Color")
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        button.addTarget(self, action: #selector(createAccountButtonPressed), for: .touchUpInside)
-        return button
-    }()
     
-    private lazy var loginButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 20
-        button.setTitle("LOGIN", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .white
-        button.layer.borderWidth = 3.0
-        button.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
-        return button
-    }()
-    
-    @objc private func loginButtonPressed(_ sender: UIButton) {
+    @objc private func loginButtonPressed() {
         
     }
     
-    @objc private func createAccountButtonPressed(_ sender: UIButton) {
+    @objc private func createAccountButtonPressed() {
         let newViewController = CreateAnAccountView()
         newViewController.modalPresentationStyle = .fullScreen
         self.present(newViewController, animated: true, completion: nil)
@@ -54,12 +25,19 @@ class ViewController: UIViewController {
         
         UIView.animate(withDuration: 0.5, animations: { [self] in
             if currentIndex == 1 {
-                self.currentLabel.alpha = 0
-                self.nextLabel.alpha = 1
+                firstLabel.alpha = 0
+                secondLabel.alpha = 1
             } else if currentIndex == 2 {
-                self.nextLabel.alpha = 0
-                self.finalLabel.alpha = 1
-                horizontalStackOfViews.bottomAnchor.constraint(equalTo: nextButtonCustom.topAnchor, constant: -100).isActive = true
+                secondLabel.alpha = 0
+                finalLabel.alpha = 1
+                fruitBasketPhoto.alpha = 0
+                deliveryGuyPhoto.alpha = 1
+                nextButton.frame.origin.x = -self.view.bounds.width
+                //createAccountButton.frame.origin.x = nextButton.frame.origin.x
+                finalLabel.frame.origin.y -= 50
+                horizontalStackOfViews.frame.origin.y -= 50
+                createAccountButton.alpha = 1
+                loginButton.alpha = 1
             }
             switch currentIndex {
             case 0:
@@ -75,44 +53,16 @@ class ViewController: UIViewController {
                 progressViewTwo.backgroundColor = UIColor(named: "LightGray")
                 progressViewThree.backgroundColor = UIColor(named: "ColorGreen")
             default:
-                progressViewOne.backgroundColor = UIColor(named: "LightGray")
-                progressViewTwo.backgroundColor = UIColor(named: "LightGray")
-                progressViewThree.backgroundColor = UIColor(named: "LightGray")
+                break
             }
         }, completion: { _ in
-            self.currentLabel.removeFromSuperview()
+            self.firstLabel.removeFromSuperview()
         })
     }
 
-    private let progressViewOne: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(named: "ColorGreen")
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 5
-        view.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        return view
-    }()
-
-    private let progressViewTwo: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(named: "LightGray")
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 5
-        view.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        return view
-    }()
-
-    private let progressViewThree: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(named: "LightGray")
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 5
-        view.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        return view
-    }()
+    private let progressViewOne = ProgressIndicatorElement()
+    private let progressViewTwo = ProgressIndicatorElement()
+    private let progressViewThree = ProgressIndicatorElement()
 
     private lazy var horizontalStackOfViews: UIStackView = {
         let stack = UIStackView()
@@ -125,61 +75,13 @@ class ViewController: UIViewController {
         stack.addArrangedSubview(progressViewThree)
         return stack
     }()
-
-    private lazy var currentLabel: UILabel = {
-        let label = UILabel()
-        label.text = labels[currentIndex]
-        label.textColor = UIColor(named: "Color")
-        label.numberOfLines = 2
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private lazy var nextLabel: UILabel = {
-        let label = UILabel()
-        label.text = "We provide best quality\nProducts to your family!"
-        label.textColor = UIColor(named: "Color")
-        label.numberOfLines = 2
-        label.alpha = 0
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
-    private lazy var finalLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Fast and responsibily\ndelivery by our courir"
-        label.textColor = UIColor(named: "Color")
-        label.numberOfLines = 2
-        label.alpha = 0
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let firstLabel = CustomLabel(text: "Welcome to Farmer's Market!\nGrocery Application", alpha: 1.0)
+    private let secondLabel = CustomLabel(text: "We provide best quality\nProducts to your family!", alpha: 0.0)
+    private let finalLabel = CustomLabel(text: "Fast and responsibily\ndelivery by our courir", alpha: 0.0)
 
-    private let fruitBasketPhoto: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "FruitsImage")
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
-        image.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/1.5).isActive = true
-        image.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/1.5).isActive = true
-        return image
-    }()
-    
-    private let deliveryGuyPhoto: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "DeliveryImage")
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
-        image.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/1.5).isActive = true
-        image.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/1.5).isActive = true
-        return image
-    }()
+    private let fruitBasketPhoto = CustomImageView(image: UIImage(named: "FruitsImage")!, alpha: 1.0)
+    private let deliveryGuyPhoto = CustomImageView(image: UIImage(named: "DeliveryImage")!, alpha: 0.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,33 +94,64 @@ class ViewController: UIViewController {
         button.backgroundColor = backgroundColor
         button.addTarget(self, action: action, for: .touchUpInside)
     }
-
+    
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(fruitBasketPhoto)
-        view.addSubview(currentLabel)
+        view.addSubview(firstLabel)
+        view.addSubview(finalLabel)
         view.addSubview(horizontalStackOfViews)
-        view.addSubview(nextLabel)
-        view.addSubview(nextButtonCustom)
+        view.addSubview(secondLabel)
+        view.addSubview(deliveryGuyPhoto)
+        view.addSubview(nextButton)
+        view.addSubview(createAccountButton)
+        view.addSubview(loginButton)
         
+        createAccountButton.alpha = 0
+        loginButton.alpha = 0
         
-        setupButton(nextButtonCustom, #selector(nextButtonPressed), "NEXT", .white, UIColor(named: "Color") ?? .white)
+        setupButton(nextButton, #selector(nextButtonPressed), "NEXT", .white, UIColor(named: "Color") ?? .white)
+        setupButton(createAccountButton, #selector(createAccountButtonPressed), "CREATE ACCOUNT", .white, UIColor(named: "Color") ?? .white)
+        setupButton(loginButton, #selector(loginButtonPressed), "LOGIN", .black, .black)
+        
+        loginButton.layer.borderWidth = 3.0
+        loginButton.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        
+        progressViewOne.backgroundColor = UIColor(named: "ColorGreen")
+        progressViewTwo.backgroundColor = UIColor(named: "LightGray")
+        progressViewThree.backgroundColor = UIColor(named: "LightGray")
 
         NSLayoutConstraint.activate([
             fruitBasketPhoto.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -100),
             fruitBasketPhoto.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            fruitBasketPhoto.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/1.5),
+            fruitBasketPhoto.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/1.5),
+            
+            deliveryGuyPhoto.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -100),
+            deliveryGuyPhoto.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            deliveryGuyPhoto.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/1.5),
+            deliveryGuyPhoto.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/1.5),
 
-            currentLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            currentLabel.topAnchor.constraint(equalTo: fruitBasketPhoto.bottomAnchor, constant: -100),
+            firstLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            firstLabel.topAnchor.constraint(equalTo: fruitBasketPhoto.bottomAnchor, constant: -100),
+            
+            finalLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            finalLabel.topAnchor.constraint(equalTo: fruitBasketPhoto.bottomAnchor, constant: -101),
 
-            nextLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            nextLabel.topAnchor.constraint(equalTo: fruitBasketPhoto.bottomAnchor, constant: -100),
+            secondLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            secondLabel.topAnchor.constraint(equalTo: fruitBasketPhoto.bottomAnchor, constant: -100),
 
             horizontalStackOfViews.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            horizontalStackOfViews.bottomAnchor.constraint(equalTo: nextButtonCustom.topAnchor, constant: -50),
+            horizontalStackOfViews.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -50),
 
-            nextButtonCustom.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            nextButtonCustom.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            nextButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            
+            createAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            createAccountButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            
+            loginButton.bottomAnchor.constraint(equalTo: createAccountButton.topAnchor, constant: -20),
+            loginButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
     }
 }
