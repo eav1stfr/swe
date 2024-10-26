@@ -23,6 +23,8 @@ class CustomImageView: UIImageView {
     private func setupImage() {
         image = self.image
         translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/1.5).isActive = true
+        widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/1.5).isActive = true
         contentMode = .scaleAspectFit
     }
 }

@@ -4,6 +4,15 @@ import UIKit
 
 final class CreateAnAccountView: UIViewController {
     //MARK: - REGULAR VARS
+    //private let label = CustomLabel(text: "Create an account", alpha: 1.0)
+    private let label: UILabel = {
+        let label = UILabel()
+        label.text = "Create an account"
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        return label
+    }()
     //MARK: - VIEWS
     private lazy var stackOfButton: UIStackView = {
         let stack = UIStackView()
@@ -16,15 +25,7 @@ final class CreateAnAccountView: UIViewController {
         return stack
     }()
     
-    private let deliveryPhoto: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "DeliveryImage")
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
-        image.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/1.5).isActive = true
-        image.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/1.5).isActive = true
-        return image
-    }()
+    private let deliveryPhoto = CustomImageView(image: UIImage(named: "DeliveryImage")!, alpha: 1.0)
     
     //MARK: - BUTTONS
     private let farmerButtonCustom = CustomButton()
@@ -55,6 +56,7 @@ final class CreateAnAccountView: UIViewController {
         view.backgroundColor = .white
         view.addSubview(deliveryPhoto)
         view.addSubview(stackOfButton)
+        view.addSubview(label)
         
         setupButton(farmerButtonCustom, #selector(farmerButtonPressed), "FARMER", .white, UIColor(named: "Color") ?? .white)
         setupButton(buyerButtonCustom, #selector(buyerButtonPressed), "BUYER", .black, .black)
@@ -64,6 +66,10 @@ final class CreateAnAccountView: UIViewController {
         NSLayoutConstraint.activate([
             deliveryPhoto.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             deliveryPhoto.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -100),
+            
+//            label.bottomAnchor.constraint(equalTo: stackOfButton.topAnchor, constant: -20),
+            label.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            label.bottomAnchor.constraint(equalTo: stackOfButton.topAnchor, constant: -50),
             
             stackOfButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             stackOfButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)

@@ -33,7 +33,6 @@ final class ViewController: UIViewController {
                 fruitBasketPhoto.alpha = 0
                 deliveryGuyPhoto.alpha = 1
                 nextButton.frame.origin.x = -self.view.bounds.width
-                //createAccountButton.frame.origin.x = nextButton.frame.origin.x
                 finalLabel.frame.origin.y -= 50
                 horizontalStackOfViews.frame.origin.y -= 50
                 createAccountButton.alpha = 1
@@ -124,13 +123,9 @@ final class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             fruitBasketPhoto.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -100),
             fruitBasketPhoto.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            fruitBasketPhoto.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/1.5),
-            fruitBasketPhoto.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/1.5),
             
             deliveryGuyPhoto.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -100),
             deliveryGuyPhoto.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            deliveryGuyPhoto.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/1.5),
-            deliveryGuyPhoto.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/1.5),
 
             firstLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             firstLabel.topAnchor.constraint(equalTo: fruitBasketPhoto.bottomAnchor, constant: -100),
