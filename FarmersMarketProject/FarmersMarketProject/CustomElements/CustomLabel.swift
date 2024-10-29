@@ -9,8 +9,10 @@ import UIKit
 
 class CustomLabel: UILabel {
     
-    init(text: String, alpha: CGFloat, frame: CGRect = .zero) {
+    init(text: String, color: UIColor, alpha: CGFloat = 1.0, frame: CGRect = .zero, fontSize: CGFloat) {
         super.init(frame: frame)
+        self.textColor = color
+        self.font = UIFont.systemFont(ofSize: fontSize, weight: .heavy)
         self.text = text
         self.alpha = alpha
         setupLabel()
@@ -22,10 +24,10 @@ class CustomLabel: UILabel {
     }
     
     private func setupLabel() {
-        textColor = UIColor(named: "Color")
+        //textColor = UIColor(named: "Color")
         numberOfLines = 2
         textAlignment = .center
-        font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+        //font = UIFont.systemFont(ofSize: 20, weight: .heavy)
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

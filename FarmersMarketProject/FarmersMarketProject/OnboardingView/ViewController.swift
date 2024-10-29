@@ -75,9 +75,9 @@ final class ViewController: UIViewController {
         return stack
     }()
     
-    private let firstLabel = CustomLabel(text: "Welcome to Farmer's Market!\nGrocery Application", alpha: 1.0)
-    private let secondLabel = CustomLabel(text: "We provide best quality\nProducts to your family!", alpha: 0.0)
-    private let finalLabel = CustomLabel(text: "Fast and responsibily\ndelivery by our courir", alpha: 0.0)
+    private let firstLabel = CustomLabel(text: "Welcome to Farmer's Market!\nGrocery Application", color: UIColor(named: "Color")!, alpha: 1.0, fontSize: 20)
+    private let secondLabel = CustomLabel(text: "We provide best quality\nProducts to your family!", color: UIColor(named: "Color")!, alpha: 0.0, fontSize: 20)
+    private let finalLabel = CustomLabel(text: "Fast and responsibily\ndelivery by our courir", color: UIColor(named: "Color")!, alpha: 0.0, fontSize: 20)
 
     private let fruitBasketPhoto = CustomImageView(image: UIImage(named: "FruitsImage")!, alpha: 1.0)
     private let deliveryGuyPhoto = CustomImageView(image: UIImage(named: "DeliveryImage")!, alpha: 0.0)
