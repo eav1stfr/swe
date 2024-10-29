@@ -6,8 +6,8 @@ final class CheckoutViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        //scrollView.showsHorizontalScrollIndicator = false
         scrollView.alwaysBounceVertical = true
+        scrollView.canCancelContentTouches = false
         return scrollView
     }()
     
@@ -16,15 +16,9 @@ final class CheckoutViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
+//        view.
         return view
     }()
-//    let scrollView = UIScrollView()
-//    scrollView.backgroundColor = .systemBackground
-//    scrollView.translatesAutoresizingMaskIntoConstraints = false
-//    scrollView.showsHorizontalScrollIndicator = false
-//    //scrollView.isDirectionalLockEnabled = true
-//    //scrollView.isScrollEnabled = false
-//    return scrollView
     
     private let fullNameTextField = TextFieldView(placeH: "Full Name", width: 300)
     private let fullNameLabel = CustomLabel(text: "Full Name", color: .black, fontSize: 16)
@@ -43,6 +37,9 @@ final class CheckoutViewController: UIViewController {
     
     private let cityTextField = TextFieldView(placeH: "e.g., Astana", width: 150)
     private let cityLabel = CustomLabel(text: "City", color: .black, fontSize: 16)
+    
+    private let countryLabel = CustomLabel(text: "Country", color: .black, fontSize: 16)
+    
     
     private lazy var stackForZipCode: UIStackView = {
         let stack = UIStackView()
@@ -83,6 +80,8 @@ final class CheckoutViewController: UIViewController {
     
     private func setupView() {
         
+        view.backgroundColor = .white
+        
         view.addSubview(scrollView)
         
         scrollView.addSubview(mainContentView)
@@ -109,6 +108,7 @@ final class CheckoutViewController: UIViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -117,6 +117,7 @@ final class CheckoutViewController: UIViewController {
             mainContentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             mainContentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             mainContentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            mainContentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
             fullNameLabel.topAnchor.constraint(equalTo: mainContentView.topAnchor, constant: 20),
             fullNameLabel.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor, constant: 35),

@@ -7,7 +7,6 @@ final class TextFieldView: UITextField {
     init(frame: CGRect = .zero, placeH: String, width: CGFloat) {
         self.placeHolderText = placeH
         self.textFieldWidth = width
-        //self.widthAnchor.constraint(equalToConstant: width).isActive = true
         super.init(frame: frame)
         setupTextField()
     }
