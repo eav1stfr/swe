@@ -20,6 +20,8 @@ final class CheckoutViewController: UIViewController {
         return view
     }()
     
+    private let nextButton = CustomButton()
+    
     private let fullNameTextField = TextFieldView(placeH: "Full Name", width: 300)
     private let fullNameLabel = CustomLabel(text: "Full Name", color: .black, fontSize: 16)
     
@@ -100,9 +102,26 @@ final class CheckoutViewController: UIViewController {
         
         mainContentView.addSubview(stackOfStacks)
         
+        mainContentView.addSubview(nextButton)
+        
         mainContentView.backgroundColor = .white
         
+        nextButton.setTitle("NEXT", for: .normal)
+        nextButton.titleLabel?.textColor = .black
+        nextButton.backgroundColor = UIColor(named: "Color")
+       // nextButton.addTarget(self, selector, for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
+        
         setupConstraints()
+    }
+    
+    @objc private func nextButtonPressed() {
+        UIView.animate(withDuration: 0.5, animations: {[self] in
+            scrollView.frame.origin.x = -view.bounds.width
+            print("button pressed")
+        }, completion: { _ in
+            self.scrollView.removeFromSuperview()
+        })
     }
     
     private func setupConstraints() {
@@ -146,7 +165,10 @@ final class CheckoutViewController: UIViewController {
             addressTextField.centerXAnchor.constraint(equalTo: mainContentView.centerXAnchor),
             
             stackOfStacks.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor, constant: 40),
-            stackOfStacks.topAnchor.constraint(equalTo: addressTextField.bottomAnchor, constant: 20)
+            stackOfStacks.topAnchor.constraint(equalTo: addressTextField.bottomAnchor, constant: 20),
+            
+            nextButton.topAnchor.constraint(equalTo: stackOfStacks.bottomAnchor, constant: 20),
+            nextButton.centerXAnchor.constraint(equalTo: mainContentView.centerXAnchor)
         ])
     }
 }
