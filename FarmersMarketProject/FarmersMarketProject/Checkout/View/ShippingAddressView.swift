@@ -1,26 +1,53 @@
 import UIKit
 
-final class CheckoutViewController: UIViewController {
+protocol ShippingAddressViewDelegate: AnyObject {
+    func nextButtonPressed()
+    func saveShippingAddressButtonPressed()
+    func endEditing()
+}
+
+final class ShippingAddressView: UIView {
+    
+    weak var delegate: ShippingAddressViewDelegate?
+    
+    private lazy var tap = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private let emptyView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        //view.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.alwaysBounceVertical = true
-        scrollView.canCancelContentTouches = false
+        //scrollView.alwaysBounceVertical = true
+        //scrollView.canCancelContentTouches = true
         return scrollView
     }()
-    
     
     private let mainContentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.
+        view.isUserInteractionEnabled = true
         return view
     }()
     
     private let nextButton = CustomButton()
+    
     
     private let fullNameTextField = TextFieldView(placeH: "Full Name", width: 300)
     private let fullNameLabel = CustomLabel(text: "Full Name", color: .black, fontSize: 16)
@@ -41,6 +68,32 @@ final class CheckoutViewController: UIViewController {
     private let cityLabel = CustomLabel(text: "City", color: .black, fontSize: 16)
     
     private let countryLabel = CustomLabel(text: "Country", color: .black, fontSize: 16)
+    private let countryTextField = TextFieldView(placeH: "Kazakhstan", width: 300)
+    
+    private let saveShippingAddressLabel = CustomLabel(text: "Save Shipping Address", color: .black, fontSize: 16)
+    
+    internal lazy var saveCheckbox: UIButton = {
+        let button = UIButton()
+        button.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 3.0
+        button.layer.borderColor = UIColor(named: "Color")?.cgColor
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(savePressed), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var stackForSaveShippingAddress: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.spacing = 15
+        stack.addArrangedSubview(saveCheckbox)
+        stack.addArrangedSubview(saveShippingAddressLabel)
+        return stack
+    }()
     
     
     private lazy var stackForZipCode: UIStackView = {
@@ -75,16 +128,31 @@ final class CheckoutViewController: UIViewController {
         return stack
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
+    @objc private func savePressed() {
+        delegate?.saveShippingAddressButtonPressed()
     }
     
+    @objc private func nextButtonPressed() {
+        delegate?.nextButtonPressed()
+    }
+}
+
+private extension ShippingAddressView {
     private func setupView() {
+        backgroundColor = .white
+        addSubviews()
+        setupConstraints()
         
-        view.backgroundColor = .white
+        nextButton.setTitle("NEXT", for: .normal)
+        nextButton.titleLabel?.textColor = .black
+        nextButton.backgroundColor = UIColor(named: "Color")
+        nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
+    }
+    
+    private func addSubviews() {
+        addGestureRecognizer(tap)
         
-        view.addSubview(scrollView)
+        addSubview(scrollView)
         
         scrollView.addSubview(mainContentView)
         
@@ -102,36 +170,27 @@ final class CheckoutViewController: UIViewController {
         
         mainContentView.addSubview(stackOfStacks)
         
+        mainContentView.addSubview(countryLabel)
+        mainContentView.addSubview(countryTextField)
+        
+        mainContentView.addSubview(stackForSaveShippingAddress)
+        
         mainContentView.addSubview(nextButton)
         
         mainContentView.backgroundColor = .white
         
-        nextButton.setTitle("NEXT", for: .normal)
-        nextButton.titleLabel?.textColor = .black
-        nextButton.backgroundColor = UIColor(named: "Color")
-       // nextButton.addTarget(self, selector, for: .touchUpInside)
-        nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
-        
-        setupConstraints()
-    }
-    
-    @objc private func nextButtonPressed() {
-        UIView.animate(withDuration: 0.5, animations: {[self] in
-            scrollView.frame.origin.x = -view.bounds.width
-            print("button pressed")
-        }, completion: { _ in
-            self.scrollView.removeFromSuperview()
-        })
+        mainContentView.addSubview(emptyView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
+            mainContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
             mainContentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             mainContentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             mainContentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
@@ -167,9 +226,21 @@ final class CheckoutViewController: UIViewController {
             stackOfStacks.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor, constant: 40),
             stackOfStacks.topAnchor.constraint(equalTo: addressTextField.bottomAnchor, constant: 20),
             
-            nextButton.topAnchor.constraint(equalTo: stackOfStacks.bottomAnchor, constant: 20),
-            nextButton.centerXAnchor.constraint(equalTo: mainContentView.centerXAnchor)
+            countryLabel.topAnchor.constraint(equalTo: stackOfStacks.bottomAnchor, constant: 20),
+            countryLabel.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor, constant: 35),
+            
+            countryTextField.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 15),
+            countryTextField.centerXAnchor.constraint(equalTo: mainContentView.centerXAnchor),
+            
+            stackForSaveShippingAddress.topAnchor.constraint(equalTo: countryTextField.bottomAnchor, constant: 20),
+            stackForSaveShippingAddress.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            
+            nextButton.topAnchor.constraint(equalTo: stackForSaveShippingAddress.bottomAnchor, constant: 20),
+            nextButton.centerXAnchor.constraint(equalTo: mainContentView.centerXAnchor),
+            
+            emptyView.topAnchor.constraint(equalTo: nextButton.bottomAnchor, constant: 5),
+            emptyView.heightAnchor.constraint(equalToConstant: 50),
+            emptyView.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor)
         ])
     }
 }
-

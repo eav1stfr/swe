@@ -7,33 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF23A7512CE364A60096BE17 /* CreateAnAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A7502CE364A60096BE17 /* CreateAnAccountController.swift */; };
+		AF23A7562CE364F30096BE17 /* CreateAccountScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A7552CE364F30096BE17 /* CreateAccountScrollView.swift */; };
 		AF76EFB22CC2A1E10011284A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB12CC2A1E00011284A /* CustomButton.swift */; };
 		AF76EFB52CC2BA220011284A /* ProgressIndicatorElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB42CC2BA220011284A /* ProgressIndicatorElement.swift */; };
 		AF76EFB72CC2C77D0011284A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB62CC2C77D0011284A /* CustomLabel.swift */; };
 		AF76EFB92CC2D1580011284A /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB82CC2D1580011284A /* CustomImageView.swift */; };
 		AF97766C2CCD78F2006244E4 /* CustomTextFieldElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF97766B2CCD78F2006244E4 /* CustomTextFieldElement.swift */; };
-		AF9776702CCD7C0A006244E4 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF97766F2CCD7C0A006244E4 /* CheckoutViewController.swift */; };
 		AF9776722CCD81D0006244E4 /* CheckoutLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9776712CCD81D0006244E4 /* CheckoutLabelTextField.swift */; };
+		AFA2F1A72CD15C7D00A8C96E /* ShippingAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2F1A62CD15C7D00A8C96E /* ShippingAddressView.swift */; };
+		AFA2F1AB2CD15E8600A8C96E /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2F1AA2CD15E8600A8C96E /* CheckoutViewController.swift */; };
+		AFA2F1AD2CD15F0A00A8C96E /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2F1AC2CD15F0A00A8C96E /* PaymentMethodView.swift */; };
 		AFE8C7932CC030070006E477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7922CC030070006E477 /* AppDelegate.swift */; };
 		AFE8C7952CC030070006E477 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7942CC030070006E477 /* SceneDelegate.swift */; };
-		AFE8C7972CC030070006E477 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7962CC030070006E477 /* ViewController.swift */; };
+		AFE8C7972CC030070006E477 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7962CC030070006E477 /* ViewController1.swift */; };
 		AFE8C79C2CC030090006E477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE8C79B2CC030090006E477 /* Assets.xcassets */; };
 		AFE8C79F2CC030090006E477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE8C79D2CC030090006E477 /* LaunchScreen.storyboard */; };
 		AFE8C7A72CC0320C0006E477 /* CreateAnAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7A62CC0320C0006E477 /* CreateAnAccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF23A7502CE364A60096BE17 /* CreateAnAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountController.swift; sourceTree = "<group>"; };
+		AF23A7552CE364F30096BE17 /* CreateAccountScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScrollView.swift; sourceTree = "<group>"; };
 		AF76EFB12CC2A1E00011284A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AF76EFB42CC2BA220011284A /* ProgressIndicatorElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorElement.swift; sourceTree = "<group>"; };
 		AF76EFB62CC2C77D0011284A /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		AF76EFB82CC2D1580011284A /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		AF97766B2CCD78F2006244E4 /* CustomTextFieldElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldElement.swift; sourceTree = "<group>"; };
-		AF97766F2CCD7C0A006244E4 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		AF9776712CCD81D0006244E4 /* CheckoutLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutLabelTextField.swift; sourceTree = "<group>"; };
+		AFA2F1A62CD15C7D00A8C96E /* ShippingAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddressView.swift; sourceTree = "<group>"; };
+		AFA2F1AA2CD15E8600A8C96E /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		AFA2F1AC2CD15F0A00A8C96E /* PaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
 		AFE8C78F2CC030070006E477 /* FarmersMarketProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarmersMarketProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE8C7922CC030070006E477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE8C7942CC030070006E477 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AFE8C7962CC030070006E477 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AFE8C7962CC030070006E477 /* ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		AFE8C79B2CC030090006E477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFE8C79E2CC030090006E477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFE8C7A02CC030090006E477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,11 +59,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF23A74F2CE361EB0096BE17 /* CreateAnAccountView */ = {
+			isa = PBXGroup;
+			children = (
+				AF23A7542CE364B80096BE17 /* Model */,
+				AF23A7532CE364B10096BE17 /* Controller */,
+				AF23A7522CE364A90096BE17 /* View */,
+			);
+			path = CreateAnAccountView;
+			sourceTree = "<group>";
+		};
+		AF23A7522CE364A90096BE17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF23A7552CE364F30096BE17 /* CreateAccountScrollView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF23A7532CE364B10096BE17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AF23A7502CE364A60096BE17 /* CreateAnAccountController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AF23A7542CE364B80096BE17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AF76EFB02CC29F7B0011284A /* OnboardingView */ = {
 			isa = PBXGroup;
 			children = (
 				AFE8C7A62CC0320C0006E477 /* CreateAnAccountView.swift */,
-				AFE8C7962CC030070006E477 /* ViewController.swift */,
+				AFE8C7962CC030070006E477 /* ViewController1.swift */,
 			);
 			path = OnboardingView;
 			sourceTree = "<group>";
@@ -65,7 +106,6 @@
 			children = (
 				AF76EFB62CC2C77D0011284A /* CustomLabel.swift */,
 				AF97766A2CCD78D5006244E4 /* Onboarding */,
-				AF9776692CCD78CB006244E4 /* Checkout */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -73,7 +113,8 @@
 		AF9776682CCD788B006244E4 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
-				AF97766F2CCD7C0A006244E4 /* CheckoutViewController.swift */,
+				AFA2F1A52CD15C6B00A8C96E /* Controller */,
+				AFA2F1A42CD15C6600A8C96E /* View */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -92,9 +133,27 @@
 			children = (
 				AF76EFB42CC2BA220011284A /* ProgressIndicatorElement.swift */,
 				AF76EFB12CC2A1E00011284A /* CustomButton.swift */,
+				AF9776692CCD78CB006244E4 /* Checkout */,
 				AF76EFB82CC2D1580011284A /* CustomImageView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AFA2F1A42CD15C6600A8C96E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFA2F1A62CD15C7D00A8C96E /* ShippingAddressView.swift */,
+				AFA2F1AC2CD15F0A00A8C96E /* PaymentMethodView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AFA2F1A52CD15C6B00A8C96E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AFA2F1AA2CD15E8600A8C96E /* CheckoutViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		AFE8C7862CC030070006E477 = {
@@ -116,6 +175,7 @@
 		AFE8C7912CC030070006E477 /* FarmersMarketProject */ = {
 			isa = PBXGroup;
 			children = (
+				AF23A74F2CE361EB0096BE17 /* CreateAnAccountView */,
 				AF9776682CCD788B006244E4 /* Checkout */,
 				AF76EFB02CC29F7B0011284A /* OnboardingView */,
 				AF76EFB32CC2B9EF0011284A /* CustomElements */,
@@ -198,15 +258,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFE8C7972CC030070006E477 /* ViewController.swift in Sources */,
+				AFE8C7972CC030070006E477 /* ViewController1.swift in Sources */,
+				AFA2F1AB2CD15E8600A8C96E /* CheckoutViewController.swift in Sources */,
+				AF23A7512CE364A60096BE17 /* CreateAnAccountController.swift in Sources */,
 				AF76EFB92CC2D1580011284A /* CustomImageView.swift in Sources */,
 				AF97766C2CCD78F2006244E4 /* CustomTextFieldElement.swift in Sources */,
+				AFA2F1A72CD15C7D00A8C96E /* ShippingAddressView.swift in Sources */,
 				AFE8C7932CC030070006E477 /* AppDelegate.swift in Sources */,
 				AF76EFB22CC2A1E10011284A /* CustomButton.swift in Sources */,
-				AF9776702CCD7C0A006244E4 /* CheckoutViewController.swift in Sources */,
 				AF76EFB72CC2C77D0011284A /* CustomLabel.swift in Sources */,
 				AF9776722CCD81D0006244E4 /* CheckoutLabelTextField.swift in Sources */,
 				AF76EFB52CC2BA220011284A /* ProgressIndicatorElement.swift in Sources */,
+				AF23A7562CE364F30096BE17 /* CreateAccountScrollView.swift in Sources */,
+				AFA2F1AD2CD15F0A00A8C96E /* PaymentMethodView.swift in Sources */,
 				AFE8C7952CC030070006E477 /* SceneDelegate.swift in Sources */,
 				AFE8C7A72CC0320C0006E477 /* CreateAnAccountView.swift in Sources */,
 			);

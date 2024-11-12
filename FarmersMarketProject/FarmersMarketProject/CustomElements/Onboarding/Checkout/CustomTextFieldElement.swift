@@ -1,13 +1,29 @@
 import UIKit
 
 final class TextFieldView: UITextField {
-    private var placeHolderText: String
-    private let textFieldWidth: CGFloat
+    
+//    var placeHolderText: String? {
+//        didSet {
+//            self.placeholder = placeHolderText
+//        }
+//    }
+//
+//    var textFieldWidth: CGFloat = 0 {
+//        didSet {
+//            widthConstraint?.constant = textFieldWidth
+//        }
+//    }
+//
+    private var widthConstraint: NSLayoutConstraint?
+    //private var placeHolderText: String
+    //private var textFieldWidth: CGFloat
     
     init(frame: CGRect = .zero, placeH: String, width: CGFloat) {
-        self.placeHolderText = placeH
-        self.textFieldWidth = width
         super.init(frame: frame)
+        self.placeholder = placeH
+        //self.placeHolderText = placeH
+        self.widthAnchor.constraint(equalToConstant: width).isActive = true
+       // self.textFieldWidth = width
         setupTextField()
     }
     
@@ -16,7 +32,7 @@ final class TextFieldView: UITextField {
     }
     
     private func setupTextField() {
-        placeholder = placeHolderText
+        //placeholder = placeHolderText
         backgroundColor = .white
         layer.cornerRadius = 30
         layer.borderWidth = 1.0
@@ -35,7 +51,8 @@ final class TextFieldView: UITextField {
     
     private func setupConstraints() {
         heightAnchor.constraint(equalToConstant: 60).isActive = true
-        widthAnchor.constraint(equalToConstant: self.textFieldWidth).isActive = true
+        //widthConstraint = widthAnchor.constraint(equalToConstant: self.textFieldWidth)
+        //widthConstraint?.isActive = true
     }
     
 }
