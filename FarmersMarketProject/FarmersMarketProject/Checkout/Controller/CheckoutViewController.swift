@@ -1,7 +1,7 @@
 import UIKit
 
 final class CheckoutViewController: UIViewController {
-    
+ 
     private let shippingAddressView = ShippingAddressView()
     private let paymentMethodView = PaymentMethodView()
     private var shippingAddressViewLeadingConstraint: NSLayoutConstraint!
@@ -80,11 +80,6 @@ extension CheckoutViewController: ShippingAddressViewDelegate {
         }, completion: {_ in
             self.shippingAddressView.removeFromSuperview()
         })
-//        UIView.animate(withDuration: 0.5, animations: {[self] in
-//            view.layoutIfNeeded()
-//        }, completion: { _ in
-//            self.shippingAddressView.removeFromSuperview()
-//        })
     }
     
     func endEditing() {
