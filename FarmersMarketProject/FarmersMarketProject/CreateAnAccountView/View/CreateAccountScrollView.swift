@@ -1,6 +1,7 @@
 import UIKit
 
 protocol CreateAccountScrollViewDelegate: AnyObject {
+    //var acceptedTerms: Bool {get set}
     func continueButtonPressed()
     func acceptRulesButtonDelegate()
     func alreadyHaveAccountPressed()
@@ -48,8 +49,10 @@ final class CreateAccountScrollView: UIView {
         button.setTitle("Log In", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .heavy)
         button.titleLabel?.textColor = .black
+        button.setTitleColor(.black, for: .normal)
         button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
+        //button.widthAnchor.constraint(equalToConstant: 40).isActive = true
         button.addTarget(self, action: #selector(alreadyHaveAccountButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -58,7 +61,7 @@ final class CreateAccountScrollView: UIView {
         let stack = UIStackView()
         stack.backgroundColor = .white
         stack.axis = .horizontal
-        stack.spacing = 20
+        stack.spacing = 10
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.addArrangedSubview(alreadyHaveAccountLabel)
         stack.addArrangedSubview(alreadyHaveAccountButton)
@@ -131,6 +134,13 @@ private extension CreateAccountScrollView {
         translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.isSecureTextEntry = true
         setupButton(continueButton, #selector(continueButtonPressed), "CONTINUE", .white, UIColor(named: "Color")!, 300)
+//        if delegate?.acceptedTerms == false {
+//            continueButton.backgroundColor = .gray
+//            continueButton.isEnabled = false
+//        } else {
+//            continueButton.backgroundColor = UIColor(named: "Color")!
+//            continueButton.isEnabled = true
+//        }
     }
     
     private func addSubviews() {

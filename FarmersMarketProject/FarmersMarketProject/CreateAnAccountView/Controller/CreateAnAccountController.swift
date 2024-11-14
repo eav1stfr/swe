@@ -1,6 +1,7 @@
 import UIKit
 
 final class CreateAccountViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -22,6 +23,7 @@ private extension CreateAccountViewController {
     private func setupView() {
         view.backgroundColor = .white
         createAccountScrollView.delegate = self
+        //createAccountScrollView.delegate?.acceptedTerms = false
         addSubviews()
         setupConstraints()
     }
@@ -45,8 +47,18 @@ private extension CreateAccountViewController {
 }
 
 extension CreateAccountViewController: CreateAccountScrollViewDelegate {
+//    var acceptedTerms: Bool {
+//        get {
+//            return acceptedTerms
+//
+//        }
+//        set {
+//            acceptedTerms = false
+//        }
+//    }
+    
     func alreadyHaveAccountPressed() {
-        
+        print("already have account button pressed")
     }
     
     func acceptRulesButtonDelegate() {
