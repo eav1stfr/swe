@@ -1,19 +1,20 @@
 import UIKit
 
 protocol CreateAccountScrollViewDelegate: AnyObject {
-    //var acceptedTerms: Bool {get set}
     func continueButtonPressed()
-    func acceptRulesButtonDelegate()
+    //func acceptRulesButtonDelegate()
     func alreadyHaveAccountPressed()
 }
 
 final class CreateAccountScrollView: UIView {
     
+    private var acceptedRules: Bool = false
+    
     weak var delegate: CreateAccountScrollViewDelegate?
     
     private lazy var tap = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
     
-    private let acceptRulesLabel: UILabel = {
+    private let acceptTermsLabel: UILabel = {
         let label = UILabel()
         label.text = "I accept the terms and privacy policy"
         label.font = UIFont.systemFont(ofSize: 15)
@@ -21,7 +22,7 @@ final class CreateAccountScrollView: UIView {
         return label
     }()
     
-    private lazy var acceptRulesButton: UIButton = {
+    private lazy var acceptTermsButton: UIButton = {
         let button = UIButton()
         button.widthAnchor.constraint(equalToConstant: 30).isActive = true
         button.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -75,8 +76,8 @@ final class CreateAccountScrollView: UIView {
         stack.axis = .horizontal
         stack.spacing = 20
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.addArrangedSubview(acceptRulesButton)
-        stack.addArrangedSubview(acceptRulesLabel)
+        stack.addArrangedSubview(acceptTermsButton)
+        stack.addArrangedSubview(acceptTermsLabel)
         return stack
     }()
     
@@ -134,13 +135,6 @@ private extension CreateAccountScrollView {
         translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.isSecureTextEntry = true
         setupButton(continueButton, #selector(continueButtonPressed), "CONTINUE", .white, UIColor(named: "Color")!, 300)
-//        if delegate?.acceptedTerms == false {
-//            continueButton.backgroundColor = .gray
-//            continueButton.isEnabled = false
-//        } else {
-//            continueButton.backgroundColor = UIColor(named: "Color")!
-//            continueButton.isEnabled = true
-//        }
     }
     
     private func addSubviews() {
@@ -239,10 +233,9 @@ private extension CreateAccountScrollView {
     private func setupButton(_ button: UIButton, _ action: Selector, _ title: String, _ color: UIColor, _ backgroundColor: UIColor, _ width: CGFloat) {
         button.setTitle(title, for: .normal)
         button.setTitleColor(color, for: .normal)
-        button.backgroundColor = backgroundColor
+        button.backgroundColor = .gray
+        button.isEnabled = false
         button.addTarget(self, action: action, for: .touchUpInside)
-        button.layer.borderColor = UIColor(named: "Color")?.cgColor
-        button.layer.borderWidth = 3.0
         button.widthAnchor.constraint(equalToConstant: width).isActive = true
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
     }
@@ -252,7 +245,16 @@ private extension CreateAccountScrollView {
     }
     
     @objc private func acceptRulesButtonPressed() {
-        delegate?.acceptRulesButtonDelegate()
+        acceptedRules.toggle()
+        if acceptedRules {
+            acceptTermsButton.backgroundColor = UIColor(named: "Color")!
+            continueButton.backgroundColor = UIColor(named: "Color")!
+            continueButton.isEnabled = true
+        } else {
+            acceptTermsButton.backgroundColor = .white
+            continueButton.backgroundColor = .gray
+            continueButton.isEnabled = false
+        }
     }
     
     @objc private func alreadyHaveAccountButtonPressed() {

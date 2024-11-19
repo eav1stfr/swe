@@ -45,7 +45,7 @@ final class CheckoutViewController: UIViewController {
         shippingAddressViewLeadingConstraint = shippingAddressView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         paymentMethodViewLeadingConstraint = paymentMethodView.leadingAnchor.constraint(equalTo: view.trailingAnchor)
         NSLayoutConstraint.activate([
-            checkoutLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            checkoutLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 55),
             checkoutLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             shippingAddressViewLeadingConstraint,

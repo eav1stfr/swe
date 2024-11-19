@@ -11,7 +11,9 @@ final class ViewController: UIViewController {
     
     
     @objc private func loginButtonPressed() {
-        
+        let newVC = LoginPageViewController()
+        newVC.modalPresentationStyle = .fullScreen
+        self.present(newVC, animated: true, completion: nil )
     }
     
     @objc private func createAccountButtonPressed() {

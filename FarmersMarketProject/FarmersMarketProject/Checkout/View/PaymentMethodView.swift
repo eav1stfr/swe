@@ -26,7 +26,7 @@ final class PaymentMethodView: UIView {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.alwaysBounceVertical = true
+        //scrollView.alwaysBounceVertical = true
         scrollView.isScrollEnabled = true
         return scrollView
     }()
@@ -198,7 +198,7 @@ private extension PaymentMethodView {
             MainScrollView.centerXAnchor.constraint(equalTo: centerXAnchor),
             MainScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             MainScrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            MainScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            MainScrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
  
             mainContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),

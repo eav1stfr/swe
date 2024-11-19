@@ -24,7 +24,6 @@ final class ShippingAddressView: UIView {
     private let emptyView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        //view.heightAnchor.constraint(equalToConstant: 20).isActive = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -33,8 +32,7 @@ final class ShippingAddressView: UIView {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        //scrollView.alwaysBounceVertical = true
-        //scrollView.canCancelContentTouches = true
+        scrollView.alwaysBounceVertical = false
         return scrollView
     }()
     

@@ -23,7 +23,6 @@ private extension CreateAccountViewController {
     private func setupView() {
         view.backgroundColor = .white
         createAccountScrollView.delegate = self
-        //createAccountScrollView.delegate?.acceptedTerms = false
         addSubviews()
         setupConstraints()
     }
@@ -47,26 +46,18 @@ private extension CreateAccountViewController {
 }
 
 extension CreateAccountViewController: CreateAccountScrollViewDelegate {
-//    var acceptedTerms: Bool {
-//        get {
-//            return acceptedTerms
-//
-//        }
-//        set {
-//            acceptedTerms = false
-//        }
-//    }
-    
     func alreadyHaveAccountPressed() {
         print("already have account button pressed")
-    }
-    
-    func acceptRulesButtonDelegate() {
-        
+        let newViewController = LoginPageViewController()
+        newViewController.modalPresentationStyle = .fullScreen
+        self.present(newViewController, animated: true, completion: nil)
     }
     
     func continueButtonPressed() {
         print("continue button pressed")
+        let newViewController = MainMenuTabBarController()
+        newViewController.modalPresentationStyle = .fullScreen
+        self.present(newViewController, animated: true, completion: nil)
     }
 }
 
