@@ -7,6 +7,8 @@ final class CreateAccountViewController: UIViewController {
         setupView()
     }
     
+    private lazy var user = User(username: "", email: "", password: "", first_name: "", last_name: "", role: "")
+    
     private var createAccountScrollView = CreateAccountScrollView()
     
     private let createAccountLabel: UILabel = {
@@ -46,6 +48,36 @@ private extension CreateAccountViewController {
 }
 
 extension CreateAccountViewController: CreateAccountScrollViewDelegate {
+    func performRequestCreateUser(user: User) {
+        let url = URL(string: "https://farmer-market-zlmy.onrender.com/api/register/buyer/")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let data = try! JSONEncoder().encode(user)
+        request.httpBody = data
+        
+        request.setValue(
+            "application/json",
+            forHTTPHeaderField: "Content-Type"
+        )
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let statusCode = (response as! HTTPURLResponse).statusCode
+            
+            if statusCode == 400 {
+                print("error: not valid request")
+            } else {
+                print(statusCode)
+                let defaults = UserDefaults.standard
+                defaults.set(user.first_name, forKey: "Name")
+                defaults.set(user.last_name, forKey: "Surname")
+                defaults.set(user.email, forKey: "Email")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
     func alreadyHaveAccountPressed() {
         print("already have account button pressed")
         let newViewController = LoginPageViewController()

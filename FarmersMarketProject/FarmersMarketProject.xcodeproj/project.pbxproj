@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF2178AA2CECDD2D00E498D7 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2178A92CECDD2D00E498D7 /* CustomCollectionViewCell.swift */; };
+		AF2178AC2CECF80E00E498D7 /* CollectionCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2178AB2CECF80E00E498D7 /* CollectionCustomCell.swift */; };
+		AF2178CC2CEDD8D300E498D7 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2178CB2CEDD8D300E498D7 /* BasketViewController.swift */; };
+		AF2178CE2CEDE06200E498D7 /* PaymentSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2178CD2CEDE06200E498D7 /* PaymentSummaryView.swift */; };
+		AF2178D02CEDF1A200E498D7 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2178CF2CEDF1A200E498D7 /* UserModel.swift */; };
 		AF23A7512CE364A60096BE17 /* CreateAnAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A7502CE364A60096BE17 /* CreateAnAccountController.swift */; };
 		AF23A7562CE364F30096BE17 /* CreateAccountScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A7552CE364F30096BE17 /* CreateAccountScrollView.swift */; };
 		AF2DFC862CE7386700FB4101 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DFC852CE7386700FB4101 /* LoginPageViewController.swift */; };
@@ -27,6 +32,9 @@
 		AFA2F1A72CD15C7D00A8C96E /* ShippingAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2F1A62CD15C7D00A8C96E /* ShippingAddressView.swift */; };
 		AFA2F1AB2CD15E8600A8C96E /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2F1AA2CD15E8600A8C96E /* CheckoutViewController.swift */; };
 		AFA2F1AD2CD15F0A00A8C96E /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2F1AC2CD15F0A00A8C96E /* PaymentMethodView.swift */; };
+		AFA724EF2CEC8156008725F7 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA724EE2CEC8156008725F7 /* helper.swift */; };
+		AFA724F22CEC8224008725F7 /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA724F12CEC8224008725F7 /* TableCellModel.swift */; };
+		AFA724F42CEC84AC008725F7 /* TableViewCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA724F32CEC84AC008725F7 /* TableViewCustomCell.swift */; };
 		AFE8C7932CC030070006E477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7922CC030070006E477 /* AppDelegate.swift */; };
 		AFE8C7952CC030070006E477 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7942CC030070006E477 /* SceneDelegate.swift */; };
 		AFE8C7972CC030070006E477 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7962CC030070006E477 /* ViewController1.swift */; };
@@ -36,6 +44,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF2178A92CECDD2D00E498D7 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF2178AB2CECF80E00E498D7 /* CollectionCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCustomCell.swift; sourceTree = "<group>"; };
+		AF2178CB2CEDD8D300E498D7 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		AF2178CD2CEDE06200E498D7 /* PaymentSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSummaryView.swift; sourceTree = "<group>"; };
+		AF2178CF2CEDF1A200E498D7 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		AF23A7502CE364A60096BE17 /* CreateAnAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountController.swift; sourceTree = "<group>"; };
 		AF23A7552CE364F30096BE17 /* CreateAccountScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScrollView.swift; sourceTree = "<group>"; };
 		AF2DFC852CE7386700FB4101 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +69,9 @@
 		AFA2F1A62CD15C7D00A8C96E /* ShippingAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddressView.swift; sourceTree = "<group>"; };
 		AFA2F1AA2CD15E8600A8C96E /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		AFA2F1AC2CD15F0A00A8C96E /* PaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
+		AFA724EE2CEC8156008725F7 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
+		AFA724F12CEC8224008725F7 /* TableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
+		AFA724F32CEC84AC008725F7 /* TableViewCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCustomCell.swift; sourceTree = "<group>"; };
 		AFE8C78F2CC030070006E477 /* FarmersMarketProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarmersMarketProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE8C7922CC030070006E477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE8C7942CC030070006E477 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +93,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF2178A82CECB26F00E498D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF2178AB2CECF80E00E498D7 /* CollectionCustomCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF2178C72CEDD85F00E498D7 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				AF2178CA2CEDD88D00E498D7 /* Model */,
+				AF2178C92CEDD88500E498D7 /* Controller */,
+				AF2178C82CEDD87A00E498D7 /* View */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
+		AF2178C82CEDD87A00E498D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF2178CD2CEDE06200E498D7 /* PaymentSummaryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF2178C92CEDD88500E498D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AF2178CB2CEDD8D300E498D7 /* BasketViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AF2178CA2CEDD88D00E498D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AF23A74F2CE361EB0096BE17 /* CreateAnAccountView */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +163,7 @@
 		AF23A7542CE364B80096BE17 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AF2178CF2CEDF1A200E498D7 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				AF2DFC8A2CE7768000FB4101 /* MainMenuTabBarController.swift */,
+				AF2178C72CEDD85F00E498D7 /* Basket */,
 				AF2DFC8F2CE778EF00FB4101 /* Profile */,
 				AF2DFC8D2CE778CA00FB4101 /* TrackSalesAndPay */,
 				AF2DFC8C2CE778C000FB4101 /* ProductCategories */,
@@ -149,6 +208,7 @@
 		AF2DFC8C2CE778C000FB4101 /* ProductCategories */ = {
 			isa = PBXGroup;
 			children = (
+				AF2178A82CECB26F00E498D7 /* Model */,
 				AF2DFC962CE7792000FB4101 /* Controller */,
 				AF2DFC952CE7791B00FB4101 /* View */,
 			);
@@ -167,6 +227,7 @@
 		AF2DFC8F2CE778EF00FB4101 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				AFA724F02CEC820E008725F7 /* Model */,
 				AF2DFC912CE778FF00FB4101 /* Controller */,
 				AF2DFC902CE778F500FB4101 /* View */,
 			);
@@ -177,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				AF2DFC992CE779B500FB4101 /* ProfileView.swift */,
+				AFA724F32CEC84AC008725F7 /* TableViewCustomCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				AF2DFCA12CE779DD00FB4101 /* ProductSalesView.swift */,
+				AF2178A92CECDD2D00E498D7 /* CustomCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +348,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		AFA724F02CEC820E008725F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFA724F12CEC8224008725F7 /* TableCellModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AFE8C7862CC030070006E477 = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +386,7 @@
 				AFE8C79B2CC030090006E477 /* Assets.xcassets */,
 				AFE8C79D2CC030090006E477 /* LaunchScreen.storyboard */,
 				AFE8C7A02CC030090006E477 /* Info.plist */,
+				AFA724EE2CEC8156008725F7 /* helper.swift */,
 			);
 			path = FarmersMarketProject;
 			sourceTree = "<group>";
@@ -389,6 +461,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF2178CC2CEDD8D300E498D7 /* BasketViewController.swift in Sources */,
+				AFA724F42CEC84AC008725F7 /* TableViewCustomCell.swift in Sources */,
 				AFE8C7972CC030070006E477 /* ViewController1.swift in Sources */,
 				AFA2F1AB2CD15E8600A8C96E /* CheckoutViewController.swift in Sources */,
 				AF23A7512CE364A60096BE17 /* CreateAnAccountController.swift in Sources */,
@@ -398,20 +472,26 @@
 				AF2DFC9C2CE779C000FB4101 /* TrackSalesViewController.swift in Sources */,
 				AFA2F1A72CD15C7D00A8C96E /* ShippingAddressView.swift in Sources */,
 				AFE8C7932CC030070006E477 /* AppDelegate.swift in Sources */,
+				AF2178CE2CEDE06200E498D7 /* PaymentSummaryView.swift in Sources */,
 				AF76EFB22CC2A1E10011284A /* CustomButton.swift in Sources */,
 				AF2DFC982CE779AC00FB4101 /* ProfileViewController.swift in Sources */,
 				AF76EFB72CC2C77D0011284A /* CustomLabel.swift in Sources */,
+				AFA724F22CEC8224008725F7 /* TableCellModel.swift in Sources */,
 				AF9776722CCD81D0006244E4 /* CheckoutLabelTextField.swift in Sources */,
+				AF2178AA2CECDD2D00E498D7 /* CustomCollectionViewCell.swift in Sources */,
 				AF2DFCA22CE779DD00FB4101 /* ProductSalesView.swift in Sources */,
 				AF2DFCA02CE779D400FB4101 /* ProductCategoriesViewController.swift in Sources */,
 				AF2DFC9A2CE779B500FB4101 /* ProfileView.swift in Sources */,
 				AF76EFB52CC2BA220011284A /* ProgressIndicatorElement.swift in Sources */,
 				AF23A7562CE364F30096BE17 /* CreateAccountScrollView.swift in Sources */,
 				AF2DFC8B2CE7768000FB4101 /* MainMenuTabBarController.swift in Sources */,
+				AF2178AC2CECF80E00E498D7 /* CollectionCustomCell.swift in Sources */,
 				AFA2F1AD2CD15F0A00A8C96E /* PaymentMethodView.swift in Sources */,
+				AF2178D02CEDF1A200E498D7 /* UserModel.swift in Sources */,
 				AF2DFC862CE7386700FB4101 /* LoginPageViewController.swift in Sources */,
 				AFE8C7952CC030070006E477 /* SceneDelegate.swift in Sources */,
 				AFE8C7A72CC0320C0006E477 /* CreateAnAccountView.swift in Sources */,
+				AFA724EF2CEC8156008725F7 /* helper.swift in Sources */,
 				AF2DFC9E2CE779C800FB4101 /* TrackSalesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

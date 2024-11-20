@@ -21,7 +21,34 @@ final class LoginPageViewController: UIViewController {
 }
 
 extension LoginPageViewController: LoginPageViewDelegate {
+    
+    func loginButtonPressed(user: UserToLogin) {
+        let url = URL(string: "https://farmer-market-zlmy.onrender.com/api/login/")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let data = try! JSONEncoder().encode(user)
+        request.httpBody = data
+    
+        request.setValue(
+            "application/json",
+            forHTTPHeaderField: "Content-Type"
+        )
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let statusCode = (response as! HTTPURLResponse).statusCode
+    
+            if statusCode == 400 {
+                print("error: not valid request")
+            } else {
+                print(statusCode)
+            }
+        }
+    
+        task.resume()
+    }
+    
     func loginButtonPressed() {
+        
         let newViewController = MainMenuTabBarController()
         newViewController.modalPresentationStyle = .fullScreen
         self.present(newViewController, animated: true, completion: nil)

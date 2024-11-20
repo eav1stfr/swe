@@ -15,6 +15,7 @@ extension MainMenuTabBarController {
         let productCategoriesVC = ProductCategoriesViewController()
         let trackOrderVC = CheckoutViewController()
         let profileVC = ProfileViewController()
+        let basketVC = BasketViewController()
         
         productCategoriesVC.tabBarItem.image = UIImage(systemName: "house.fill")
         productCategoriesVC.tabBarItem.image?.withTintColor(.black)
@@ -28,16 +29,21 @@ extension MainMenuTabBarController {
         profileVC.tabBarItem.image?.withTintColor(.black)
         profileVC.tabBarItem.badgeColor = .black
         profileVC.tabBarItem.title = "Profile"
+        
+        basketVC.tabBarItem.image = UIImage(systemName: "basket.fill")
+        basketVC.tabBarItem.image?.withTintColor(.black)
+        basketVC.tabBarItem.badgeColor = .black
+        basketVC.tabBarItem.title = "Basket"
 
         let nav1 = UINavigationController(rootViewController: productCategoriesVC)
         let nav2 = UINavigationController(rootViewController: trackOrderVC)
         let nav3 = UINavigationController(rootViewController: profileVC)
-        
+        let nav4 = UINavigationController(rootViewController: basketVC)
         
         tabBar.tintColor = UIColor(named: "Color")!
         tabBar.backgroundColor = .systemGray6
         
-        setViewControllers([nav1, nav2, nav3], animated: true)
+        setViewControllers([nav1, nav2, nav4, nav3], animated: true)
     }
 }
 

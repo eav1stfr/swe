@@ -188,7 +188,7 @@ private extension ShippingAddressView {
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
-            mainContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
+            mainContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height + 50),
             mainContentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             mainContentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             mainContentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),

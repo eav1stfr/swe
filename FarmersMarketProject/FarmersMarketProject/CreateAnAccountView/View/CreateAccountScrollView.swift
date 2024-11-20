@@ -2,11 +2,13 @@ import UIKit
 
 protocol CreateAccountScrollViewDelegate: AnyObject {
     func continueButtonPressed()
-    //func acceptRulesButtonDelegate()
     func alreadyHaveAccountPressed()
+    func performRequestCreateUser(user: User)
 }
 
 final class CreateAccountScrollView: UIView {
+    
+    private var userCreated = User(username: "", email: "", password: "", first_name: "", last_name: "", role: "")
     
     private var acceptedRules: Bool = false
     
@@ -53,7 +55,6 @@ final class CreateAccountScrollView: UIView {
         button.setTitleColor(.black, for: .normal)
         button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.widthAnchor.constraint(equalToConstant: 40).isActive = true
         button.addTarget(self, action: #selector(alreadyHaveAccountButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -241,6 +242,14 @@ private extension CreateAccountScrollView {
     }
     
     @objc private func continueButtonPressed() {
+        userCreated.email = emailTextField.text!
+        userCreated.first_name = nameTextField.text!
+        userCreated.last_name = surnameTextField.text!
+        userCreated.username = usernameTextField.text!
+        userCreated.password = passwordTextField.text!
+        userCreated.role = "buyer"
+        
+        delegate?.performRequestCreateUser(user: userCreated)
         delegate?.continueButtonPressed()
     }
     

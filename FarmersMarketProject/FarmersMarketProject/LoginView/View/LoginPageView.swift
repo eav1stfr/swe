@@ -1,11 +1,13 @@
 import UIKit
 
 protocol LoginPageViewDelegate: AnyObject {
-    func loginButtonPressed()
+    func loginButtonPressed(user: UserToLogin)
     func signUpButtonPressed()
 }
 
 final class LoginPageView: UIView {
+    
+    var userToLogin = UserToLogin(username_or_email: "", password: "")
     
     weak var delegate: LoginPageViewDelegate?
     
@@ -75,7 +77,7 @@ extension LoginPageView {
     }
     
     @objc private func loginButtonPressed() {
-        delegate?.loginButtonPressed()
+        delegate?.loginButtonPressed(user: userToLogin)
     }
 }
 

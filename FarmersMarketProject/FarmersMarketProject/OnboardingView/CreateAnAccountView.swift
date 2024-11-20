@@ -68,7 +68,6 @@ final class CreateAnAccountView: UIViewController {
             deliveryPhoto.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             deliveryPhoto.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -100),
             
-//            label.bottomAnchor.constraint(equalTo: stackOfButton.topAnchor, constant: -20),
             label.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             label.bottomAnchor.constraint(equalTo: stackOfButton.topAnchor, constant: -50),
             
