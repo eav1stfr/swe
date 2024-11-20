@@ -81,5 +81,4 @@ extension ProfileView {
         tableView.dataSource = self
         tableView.register(TableViewCustomCell.self, forCellReuseIdentifier: "TableViewCustomCell")
     }
-    
 }

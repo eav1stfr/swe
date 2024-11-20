@@ -27,6 +27,8 @@ final class TextFieldView: UITextField {
         leftViewMode = .always
         textColor = .black
         
+        autocapitalizationType = .none
+        
         tintColor = .black
         translatesAutoresizingMaskIntoConstraints = false
         setupConstraints()

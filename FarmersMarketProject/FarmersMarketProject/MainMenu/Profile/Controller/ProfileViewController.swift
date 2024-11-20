@@ -86,7 +86,9 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewDelegate {
     func profileOptionViewDidSelect() {
-        print("row was selected")
+        let defaults = UserDefaults.standard
+        defaults.set(false, forKey: "IsAuthorized")
+        print("pressed")
     }
 }
 

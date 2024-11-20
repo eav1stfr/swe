@@ -1,5 +1,5 @@
 
-struct User: Codable {
+struct Buyer: Codable {
     var username: String
     var email: String
     var password: String

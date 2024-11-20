@@ -22,7 +22,11 @@ final class LoginPageViewController: UIViewController {
 
 extension LoginPageViewController: LoginPageViewDelegate {
     
-    func loginButtonPressed(user: UserToLogin) {
+    func loginButtonWasPressed(user: UserToLogin) {
+        print("button pressed")
+        print(user.username_or_email)
+        print(user.password)
+        
         let url = URL(string: "https://farmer-market-zlmy.onrender.com/api/login/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -38,20 +42,23 @@ extension LoginPageViewController: LoginPageViewDelegate {
             let statusCode = (response as! HTTPURLResponse).statusCode
     
             if statusCode == 400 {
-                print("error: not valid request")
+                print("what?")
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Error", message: "No such user exists, or the password is incorrect", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Try again", style: .default)
+                    alertController.addAction(action)
+                    self.present(alertController, animated: true)
+                }
             } else {
-                print(statusCode)
+                print("success")
+                DispatchQueue.main.async {
+                    let newViewController = MainMenuTabBarController()
+                    newViewController.modalPresentationStyle = .fullScreen
+                    self.present(newViewController, animated: true, completion: nil)
+                }
             }
         }
-    
         task.resume()
-    }
-    
-    func loginButtonPressed() {
-        
-        let newViewController = MainMenuTabBarController()
-        newViewController.modalPresentationStyle = .fullScreen
-        self.present(newViewController, animated: true, completion: nil)
     }
     
     func signUpButtonPressed() {

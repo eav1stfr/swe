@@ -1,7 +1,7 @@
 import UIKit
 
 protocol LoginPageViewDelegate: AnyObject {
-    func loginButtonPressed(user: UserToLogin)
+    func loginButtonWasPressed(user: UserToLogin)
     func signUpButtonPressed()
 }
 
@@ -38,6 +38,7 @@ final class LoginPageView: UIView {
     private let passwordTextField = TextFieldView(placeH: "Your password", width: 300)
     
     private let dontHaveAccountLabel = CustomLabel(text: "Don't have an account?", color: .black, fontSize: 15)
+    
     private lazy var signUpButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .white
@@ -77,18 +78,22 @@ extension LoginPageView {
     }
     
     @objc private func loginButtonPressed() {
-        delegate?.loginButtonPressed(user: userToLogin)
+        print("pressed")
+        userToLogin.username_or_email = emailUsernameTextField.text!
+        userToLogin.password = passwordTextField.text!
+        
+        delegate?.loginButtonWasPressed(user: userToLogin)
     }
 }
 
-private extension LoginPageView {
+extension LoginPageView {
     
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubviews()
         setupConstraints()
         additionalSetup()
-        setupButton(loginButton, #selector(loginButtonPressed), "LOGIN", .white, UIColor(named: "Color")!, 300)
+        setupButton(loginButton, #selector(loginButtonPressed), "LOGIN", .white, .black, 300)
     }
     
     private func addSubviews() {
@@ -151,11 +156,12 @@ private extension LoginPageView {
     private func setupButton(_ button: UIButton, _ action: Selector, _ title: String, _ color: UIColor, _ backgroundColor: UIColor, _ width: CGFloat) {
         button.setTitle(title, for: .normal)
         button.setTitleColor(color, for: .normal)
-        button.backgroundColor = UIColor(named: "Color")!
+        button.backgroundColor = backgroundColor
         button.isEnabled = false
         button.addTarget(self, action: action, for: .touchUpInside)
         button.widthAnchor.constraint(equalToConstant: width).isActive = true
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        button.isEnabled = true
     }
     
 }

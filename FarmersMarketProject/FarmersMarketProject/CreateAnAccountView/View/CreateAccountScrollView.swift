@@ -3,12 +3,12 @@ import UIKit
 protocol CreateAccountScrollViewDelegate: AnyObject {
     func continueButtonPressed()
     func alreadyHaveAccountPressed()
-    func performRequestCreateUser(user: User)
+    func performRequestCreateUser(user: Buyer)
 }
 
 final class CreateAccountScrollView: UIView {
     
-    private var userCreated = User(username: "", email: "", password: "", first_name: "", last_name: "", role: "")
+    private var userCreated = Buyer(username: "", email: "", password: "", first_name: "", last_name: "", role: "")
     
     private var acceptedRules: Bool = false
     
@@ -115,6 +115,9 @@ final class CreateAccountScrollView: UIView {
     private let passwordLabel = CustomLabel(text: "Password", color: .black, fontSize: 16)
     let passwordTextField = TextFieldView(placeH: "Your password", width: 300)
     
+    private let roleLabel = CustomLabel(text: "Role", color: .black, fontSize: 16)
+    let roleTextField = TextFieldView(placeH: "e.g., Farmer", width: 300)
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -160,6 +163,9 @@ private extension CreateAccountScrollView {
         mainContentView.addSubview(passwordLabel)
         mainContentView.addSubview(passwordTextField)
         
+        mainContentView.addSubview(roleLabel)
+        mainContentView.addSubview(roleTextField)
+        
         mainContentView.addSubview(stackForAcceptRules)
         
         mainContentView.addSubview(continueButton)
@@ -175,7 +181,7 @@ private extension CreateAccountScrollView {
             mainScrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             mainScrollView.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            mainContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
+            mainContentView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height+100),
             mainContentView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
             mainContentView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
             mainContentView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),
@@ -217,8 +223,15 @@ private extension CreateAccountScrollView {
             passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 15),
             passwordTextField.centerXAnchor.constraint(equalTo: mainContentView.centerXAnchor),
             
+            //role
+            roleLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            roleLabel.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor, constant: 35),
+            
+            roleTextField.topAnchor.constraint(equalTo: roleLabel.bottomAnchor, constant: 15),
+            roleTextField.centerXAnchor.constraint(equalTo: mainContentView.centerXAnchor),
+            
             //stack
-            stackForAcceptRules.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            stackForAcceptRules.topAnchor.constraint(equalTo: roleTextField.bottomAnchor, constant: 20),
             //stackForAcceptRules.heightAnchor.constraint(equalToConstant: 50),
             stackForAcceptRules.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor, constant: 35),
             
@@ -247,7 +260,7 @@ private extension CreateAccountScrollView {
         userCreated.last_name = surnameTextField.text!
         userCreated.username = usernameTextField.text!
         userCreated.password = passwordTextField.text!
-        userCreated.role = "buyer"
+        userCreated.role = roleTextField.text!.lowercased()
         
         delegate?.performRequestCreateUser(user: userCreated)
         delegate?.continueButtonPressed()

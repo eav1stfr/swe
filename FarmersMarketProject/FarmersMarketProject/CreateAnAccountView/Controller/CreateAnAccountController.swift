@@ -7,8 +7,6 @@ final class CreateAccountViewController: UIViewController {
         setupView()
     }
     
-    private lazy var user = User(username: "", email: "", password: "", first_name: "", last_name: "", role: "")
-    
     private var createAccountScrollView = CreateAccountScrollView()
     
     private let createAccountLabel: UILabel = {
@@ -48,7 +46,7 @@ private extension CreateAccountViewController {
 }
 
 extension CreateAccountViewController: CreateAccountScrollViewDelegate {
-    func performRequestCreateUser(user: User) {
+    func performRequestCreateUser(user: Buyer) {
         let url = URL(string: "https://farmer-market-zlmy.onrender.com/api/register/buyer/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -71,6 +69,7 @@ extension CreateAccountViewController: CreateAccountScrollViewDelegate {
                 defaults.set(user.first_name, forKey: "Name")
                 defaults.set(user.last_name, forKey: "Surname")
                 defaults.set(user.email, forKey: "Email")
+                defaults.set(true, forKey: "IsAuthorized")
             }
         }
         
