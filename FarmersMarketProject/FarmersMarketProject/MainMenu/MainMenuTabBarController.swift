@@ -17,6 +17,8 @@ extension MainMenuTabBarController {
         let profileVC = ProfileViewController()
         let basketVC = BasketViewController()
         
+        let productListingVC = ProductListingViewController()
+        
         productCategoriesVC.tabBarItem.image = UIImage(systemName: "house.fill")
         productCategoriesVC.tabBarItem.image?.withTintColor(.black)
         productCategoriesVC.tabBarItem.title = "Products"
@@ -34,16 +36,29 @@ extension MainMenuTabBarController {
         basketVC.tabBarItem.image?.withTintColor(.black)
         basketVC.tabBarItem.badgeColor = .black
         basketVC.tabBarItem.title = "Basket"
+        
+        productListingVC.tabBarItem.image = UIImage(systemName: "basket.fill")
+        productListingVC.tabBarItem.image?.withTintColor(.black)
+        productListingVC.tabBarItem.badgeColor = .black
+        productListingVC.tabBarItem.title = "My products"
 
         let nav1 = UINavigationController(rootViewController: productCategoriesVC)
         let nav2 = UINavigationController(rootViewController: trackOrderVC)
         let nav3 = UINavigationController(rootViewController: profileVC)
         let nav4 = UINavigationController(rootViewController: basketVC)
+        let nav5 = UINavigationController(rootViewController: productListingVC)
         
         tabBar.tintColor = UIColor(named: "Color")!
         tabBar.backgroundColor = .systemGray6
         
-        setViewControllers([nav1, nav2, nav4, nav3], animated: true)
+        let defaults = UserDefaults.standard
+        
+        if defaults.string(forKey: "Role") == "farmer" {
+            setViewControllers([nav1, nav2, nav5, nav3], animated: true)
+        } else {
+            setViewControllers([nav1, nav2, nav4, nav3], animated: true)
+        }
+        
     }
 }
 

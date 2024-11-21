@@ -3,6 +3,7 @@ import UIKit
 protocol LoginPageViewDelegate: AnyObject {
     func loginButtonWasPressed(user: UserToLogin)
     func signUpButtonPressed()
+    func parseJson(userData: Data) -> UserLoginReturn?
 }
 
 final class LoginPageView: UIView {
@@ -93,7 +94,7 @@ extension LoginPageView {
         addSubviews()
         setupConstraints()
         additionalSetup()
-        setupButton(loginButton, #selector(loginButtonPressed), "LOGIN", .white, .black, 300)
+        setupButton(loginButton, #selector(loginButtonPressed), "LOGIN", .white, UIColor(named: "Color")!, 300)
     }
     
     private func addSubviews() {

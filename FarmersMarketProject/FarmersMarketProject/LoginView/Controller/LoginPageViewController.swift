@@ -17,10 +17,23 @@ final class LoginPageViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-    
+
 }
 
 extension LoginPageViewController: LoginPageViewDelegate {
+    func parseJson(userData: Data) -> UserLoginReturn? {
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(UserLoginReturn.self, from: userData)
+            let token = decodedData.token
+            let role = decodedData.role
+            
+            let user = UserLoginReturn(token: token, role: role)
+            return user
+        } catch {
+            return nil
+        }
+    }
     
     func loginButtonWasPressed(user: UserToLogin) {
         print("button pressed")
@@ -40,7 +53,16 @@ extension LoginPageViewController: LoginPageViewDelegate {
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             let statusCode = (response as! HTTPURLResponse).statusCode
-    
+            print(statusCode)
+            
+            if let safeData = data {
+                if let user = self.parseJson(userData: safeData) {
+                    let defaults = UserDefaults.standard
+                    defaults.set(user.token, forKey: "UserToken")
+                    print(user.token)
+                }
+            }
+            
             if statusCode == 400 {
                 print("what?")
                 DispatchQueue.main.async {
@@ -50,6 +72,9 @@ extension LoginPageViewController: LoginPageViewDelegate {
                     self.present(alertController, animated: true)
                 }
             } else {
+                let defaults = UserDefaults.standard
+                defaults.set(true, forKey: "IsAuthorized")
+                defaults.set(user.username_or_email, forKey: "Email")
                 print("success")
                 DispatchQueue.main.async {
                     let newViewController = MainMenuTabBarController()

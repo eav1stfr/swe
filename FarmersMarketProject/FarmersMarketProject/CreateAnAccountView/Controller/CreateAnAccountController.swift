@@ -37,8 +37,8 @@ private extension CreateAccountViewController {
             createAccountLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             createAccountLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             
-            createAccountScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             createAccountScrollView.topAnchor.constraint(equalTo: createAccountLabel.bottomAnchor, constant: 10),
+            createAccountScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             createAccountScrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             createAccountScrollView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
@@ -62,7 +62,12 @@ extension CreateAccountViewController: CreateAccountScrollViewDelegate {
             let statusCode = (response as! HTTPURLResponse).statusCode
             
             if statusCode == 400 {
-                print("error: not valid request")
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Error", message: "Something went wrong, try again", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Try again", style: .default)
+                    alertController.addAction(action)
+                    self.present(alertController, animated: true)
+                }
             } else {
                 print(statusCode)
                 let defaults = UserDefaults.standard
@@ -70,6 +75,12 @@ extension CreateAccountViewController: CreateAccountScrollViewDelegate {
                 defaults.set(user.last_name, forKey: "Surname")
                 defaults.set(user.email, forKey: "Email")
                 defaults.set(true, forKey: "IsAuthorized")
+                defaults.set(user.role, forKey: "Role")
+                DispatchQueue.main.async {
+                    let newViewController = MainMenuTabBarController()
+                    newViewController.modalPresentationStyle = .fullScreen
+                    self.present(newViewController, animated: true, completion: nil)
+                }
             }
         }
         
@@ -78,7 +89,6 @@ extension CreateAccountViewController: CreateAccountScrollViewDelegate {
     
     
     func alreadyHaveAccountPressed() {
-        print("already have account button pressed")
         let newViewController = LoginPageViewController()
         newViewController.modalPresentationStyle = .fullScreen
         self.present(newViewController, animated: true, completion: nil)
@@ -86,9 +96,6 @@ extension CreateAccountViewController: CreateAccountScrollViewDelegate {
     
     func continueButtonPressed() {
         print("continue button pressed")
-        let newViewController = MainMenuTabBarController()
-        newViewController.modalPresentationStyle = .fullScreen
-        self.present(newViewController, animated: true, completion: nil)
     }
 }
 

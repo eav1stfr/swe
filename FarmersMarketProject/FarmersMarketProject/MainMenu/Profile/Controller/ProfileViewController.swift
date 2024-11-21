@@ -32,7 +32,7 @@ final class ProfileViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = (defaults.string(forKey: "Name") ?? "Alexandr")+" "+(defaults.string(forKey: "Surname") ?? "Em")
+        label.text = (defaults.string(forKey: "Name") ?? "Alexandr")
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +74,7 @@ final class ProfileViewController: UIViewController {
     
     private let table = ProfileView()
     
-    private let customCells: [TableCellModel] = [
+    private let customCellsBuyer: [TableCellModel] = [
         TableCellModel(imageName: "pencil.line", description: "Edit Personal Information"),
         TableCellModel(imageName: "pencil.line", description: "Edit App Mode"),
         TableCellModel(imageName: "basket.fill", description: "Order History"),
@@ -82,6 +82,14 @@ final class ProfileViewController: UIViewController {
         TableCellModel(imageName: "door.left.hand.open", description: "Log Out")
     ]
     
+    private let customCellsFarmer: [TableCellModel] = [
+        TableCellModel(imageName: "pencil.line", description: "Edit Personal Information"),
+        TableCellModel(imageName: "pencil.line", description: "Edit Farm Details"),
+        TableCellModel(imageName: "pencil.line", description: "Edit Product Listing"),
+        TableCellModel(imageName: "basket.fill", description: "Order History"),
+        TableCellModel(imageName: "lock.fill", description: "Change Password"),
+        TableCellModel(imageName: "door.left.hand.open", description: "Log Out")
+    ]
 }
 
 extension ProfileViewController: ProfileViewDelegate {
@@ -99,7 +107,11 @@ private extension ProfileViewController {
         table.delegate = self
         addSubviews()
         setupConstraints()
-        table.configure(cellList: customCells)
+        if defaults.string(forKey: "Role") == "farmer" {
+            table.configure(cellList: customCellsFarmer)
+        } else {
+            table.configure(cellList: customCellsBuyer)            
+        }
     }
     
     private func addSubviews() {

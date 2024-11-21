@@ -13,3 +13,7 @@ struct UserToLogin: Codable {
     var password: String
 }
 
+struct UserLoginReturn: Codable {
+    var token: String
+    var role: String
+}

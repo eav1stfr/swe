@@ -6,5 +6,4 @@ final class TrackOrdersViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
     }
-    
 }

@@ -4,34 +4,53 @@ final class BasketViewController: UIViewController {
     
     private let paymentView = PaymentSummaryView()
     
+    private let basketView = BasketView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
+    
+    private let basketLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Basket"
+        label.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+        label.textColor = .black
+        return label
+    }()
     
 }
 
 private extension BasketViewController {
     
     private func setupView() {
+        basketView.delegate = self
         paymentView.translatesAutoresizingMaskIntoConstraints = false
         addSubviews()
         setupConstraints()
     }
     
     private func addSubviews() {
-        view.addSubview(paymentView)
+        view.addSubview(basketLabel)
+        view.addSubview(basketView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            paymentView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            paymentView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            paymentView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            paymentView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            paymentView.heightAnchor.constraint(equalToConstant: 200),
+            basketLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            basketLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
+            basketView.topAnchor.constraint(equalTo: basketLabel.bottomAnchor, constant: 20),
+            basketView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            basketView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            basketView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
     }
-    
+}
+
+extension BasketViewController: BasketViewDelegate {
+    func makeOrder(listOfProducts: [BasketProductModel]) {
+        print("order now button pressed")
+    }
 }
