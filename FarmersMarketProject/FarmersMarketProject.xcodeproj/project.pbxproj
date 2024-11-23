@@ -25,6 +25,10 @@
 		AF2178F42CEFBAE400E498D7 /* File in Resources */ = {isa = PBXBuildFile; fileRef = AF2178F32CEFBAE400E498D7 /* File */; };
 		AF2178F62CEFC78100E498D7 /* TableProductListingCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2178F52CEFC78100E498D7 /* TableProductListingCellModel.swift */; };
 		AF2178F82CEFC85600E498D7 /* ProductListingCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2178F72CEFC85600E498D7 /* ProductListingCustomCell.swift */; };
+		AF2178FE2CF0DB0A00E498D7 /* FarmersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2178FD2CF0DB0A00E498D7 /* FarmersListView.swift */; };
+		AF2179002CF0DC3200E498D7 /* FarmerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2178FF2CF0DC3200E498D7 /* FarmerList.swift */; };
+		AF2179022CF0DDF400E498D7 /* FarmersListCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2179012CF0DDF400E498D7 /* FarmersListCustomCell.swift */; };
+		AF2179042CF2582C00E498D7 /* BasketList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2179032CF2582C00E498D7 /* BasketList.swift */; };
 		AF23A7512CE364A60096BE17 /* CreateAnAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A7502CE364A60096BE17 /* CreateAnAccountController.swift */; };
 		AF23A7562CE364F30096BE17 /* CreateAccountScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A7552CE364F30096BE17 /* CreateAccountScrollView.swift */; };
 		AF2DFC862CE7386700FB4101 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DFC852CE7386700FB4101 /* LoginPageViewController.swift */; };
@@ -75,6 +79,10 @@
 		AF2178F32CEFBAE400E498D7 /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		AF2178F52CEFC78100E498D7 /* TableProductListingCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableProductListingCellModel.swift; sourceTree = "<group>"; };
 		AF2178F72CEFC85600E498D7 /* ProductListingCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListingCustomCell.swift; sourceTree = "<group>"; };
+		AF2178FD2CF0DB0A00E498D7 /* FarmersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmersListView.swift; sourceTree = "<group>"; };
+		AF2178FF2CF0DC3200E498D7 /* FarmerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmerList.swift; sourceTree = "<group>"; };
+		AF2179012CF0DDF400E498D7 /* FarmersListCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmersListCustomCell.swift; sourceTree = "<group>"; };
+		AF2179032CF2582C00E498D7 /* BasketList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketList.swift; sourceTree = "<group>"; };
 		AF23A7502CE364A60096BE17 /* CreateAnAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountController.swift; sourceTree = "<group>"; };
 		AF23A7552CE364F30096BE17 /* CreateAccountScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScrollView.swift; sourceTree = "<group>"; };
 		AF2DFC852CE7386700FB4101 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +173,9 @@
 		AF2178D52CEF2C1100E498D7 /* SearchViewForBuyer */ = {
 			isa = PBXGroup;
 			children = (
+				AF2178FC2CF0DAD100E498D7 /* Controller */,
+				AF2178FB2CF0DACB00E498D7 /* View */,
+				AF2178FA2CF0DAC300E498D7 /* Model */,
 				AF2178D62CEF2C3100E498D7 /* PriceFilterViewController.swift */,
 				AF2178D82CEF2C3800E498D7 /* SearchViewController.swift */,
 				AF2178DA2CEF2C3D00E498D7 /* SearchViewModel.swift */,
@@ -250,6 +261,41 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AF2178F92CF0DA9300E498D7 /* BuyerFunctionality */ = {
+			isa = PBXGroup;
+			children = (
+				AF2DFC8D2CE778CA00FB4101 /* TrackSalesAndPay */,
+				AF2178C72CEDD85F00E498D7 /* Basket */,
+				AF2178D52CEF2C1100E498D7 /* SearchViewForBuyer */,
+			);
+			path = BuyerFunctionality;
+			sourceTree = "<group>";
+		};
+		AF2178FA2CF0DAC300E498D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF2178FF2CF0DC3200E498D7 /* FarmerList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF2178FB2CF0DACB00E498D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF2178FD2CF0DB0A00E498D7 /* FarmersListView.swift */,
+				AF2179012CF0DDF400E498D7 /* FarmersListCustomCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF2178FC2CF0DAD100E498D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AF2179032CF2582C00E498D7 /* BasketList.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		AF23A74F2CE361EB0096BE17 /* CreateAnAccountView */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,10 +360,8 @@
 			children = (
 				AF2DFC8A2CE7768000FB4101 /* MainMenuTabBarController.swift */,
 				AF2178DC2CEF3B2F00E498D7 /* FarmerFunctionality */,
-				AF2178D52CEF2C1100E498D7 /* SearchViewForBuyer */,
-				AF2178C72CEDD85F00E498D7 /* Basket */,
+				AF2178F92CF0DA9300E498D7 /* BuyerFunctionality */,
 				AF2DFC8F2CE778EF00FB4101 /* Profile */,
-				AF2DFC8D2CE778CA00FB4101 /* TrackSalesAndPay */,
 				AF2DFC8C2CE778C000FB4101 /* ProductCategories */,
 			);
 			path = MainMenu;
@@ -585,6 +629,7 @@
 				AF2178CC2CEDD8D300E498D7 /* BasketViewController.swift in Sources */,
 				AF2178DB2CEF2C3D00E498D7 /* SearchViewModel.swift in Sources */,
 				AFA724F42CEC84AC008725F7 /* TableViewCustomCell.swift in Sources */,
+				AF2179002CF0DC3200E498D7 /* FarmerList.swift in Sources */,
 				AFE8C7972CC030070006E477 /* ViewController1.swift in Sources */,
 				AFA2F1AB2CD15E8600A8C96E /* CheckoutViewController.swift in Sources */,
 				AF23A7512CE364A60096BE17 /* CreateAnAccountController.swift in Sources */,
@@ -597,6 +642,7 @@
 				AFA2F1A72CD15C7D00A8C96E /* ShippingAddressView.swift in Sources */,
 				AF2178F22CEFB8A600E498D7 /* ProductListingViewController.swift in Sources */,
 				AFE8C7932CC030070006E477 /* AppDelegate.swift in Sources */,
+				AF2179042CF2582C00E498D7 /* BasketList.swift in Sources */,
 				AF2178CE2CEDE06200E498D7 /* PaymentSummaryView.swift in Sources */,
 				AF2178E42CEF419400E498D7 /* ProductModel.swift in Sources */,
 				AF76EFB22CC2A1E10011284A /* CustomButton.swift in Sources */,
@@ -607,6 +653,7 @@
 				AF9776722CCD81D0006244E4 /* CheckoutLabelTextField.swift in Sources */,
 				AF2178AA2CECDD2D00E498D7 /* CustomCollectionViewCell.swift in Sources */,
 				AF2DFCA22CE779DD00FB4101 /* ProductSalesView.swift in Sources */,
+				AF2179022CF0DDF400E498D7 /* FarmersListCustomCell.swift in Sources */,
 				AF2178D92CEF2C3800E498D7 /* SearchViewController.swift in Sources */,
 				AF2178E22CEF3B5C00E498D7 /* CreateProductView.swift in Sources */,
 				AF2178F02CEFB89C00E498D7 /* ProductListingView.swift in Sources */,
@@ -623,6 +670,7 @@
 				AFE8C7952CC030070006E477 /* SceneDelegate.swift in Sources */,
 				AFE8C7A72CC0320C0006E477 /* CreateAnAccountView.swift in Sources */,
 				AF2178E82CEF6A3500E498D7 /* BasketProductModel.swift in Sources */,
+				AF2178FE2CF0DB0A00E498D7 /* FarmersListView.swift in Sources */,
 				AFA724EF2CEC8156008725F7 /* helper.swift in Sources */,
 				AF2DFC9E2CE779C800FB4101 /* TrackSalesView.swift in Sources */,
 			);

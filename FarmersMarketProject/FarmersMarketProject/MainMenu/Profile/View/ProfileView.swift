@@ -50,7 +50,6 @@ extension ProfileView: UITableViewDelegate {
 extension ProfileView {
     func configure(cellList: [TableCellModel]) {
         self.tableCells = cellList
-        
         tableView.reloadData()
     }
     

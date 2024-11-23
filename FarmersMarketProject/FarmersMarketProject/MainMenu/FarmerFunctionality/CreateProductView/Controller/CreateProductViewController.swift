@@ -35,6 +35,7 @@ extension CreateProductViewController: CreateProductDelegate {
         
         if let token = UserDefaults.standard.string(forKey: "UserToken") {
             request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+            print("TOKEN IS \(token)")
         } else {
             print("error: something went wrong")
             return
@@ -54,6 +55,8 @@ extension CreateProductViewController: CreateProductDelegate {
                     alertController.addAction(action)
                     self.present(alertController, animated: true)
                 }
+            } else if statusCode == 500 {
+                print("mistake, 500")
             } else {
                 DispatchQueue.main.async {
                     let alertController = UIAlertController(
@@ -66,7 +69,6 @@ extension CreateProductViewController: CreateProductDelegate {
                 }
             }
         }
-        
         task.resume()
     }
 }

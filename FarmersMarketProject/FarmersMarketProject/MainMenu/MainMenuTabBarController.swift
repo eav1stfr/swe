@@ -54,7 +54,7 @@ extension MainMenuTabBarController {
         let defaults = UserDefaults.standard
         
         if defaults.string(forKey: "Role") == "farmer" {
-            setViewControllers([nav1, nav2, nav5, nav3], animated: true)
+            setViewControllers([nav1, nav5, nav3], animated: true)
         } else {
             setViewControllers([nav1, nav2, nav4, nav3], animated: true)
         }

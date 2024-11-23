@@ -51,7 +51,7 @@ extension ProductCategoriesViewController: ProductSalesViewDelegate{
     func categoryDidSelect() {
         let defaults = UserDefaults.standard
         if defaults.string(forKey: "Role") == "buyer" {
-            let newViewController = PriceFilterViewController()
+            let newViewController = BasketProductFarmersListViewController()
             newViewController.modalPresentationStyle = .pageSheet
             self.present(newViewController, animated: true, completion: nil)
         } else {

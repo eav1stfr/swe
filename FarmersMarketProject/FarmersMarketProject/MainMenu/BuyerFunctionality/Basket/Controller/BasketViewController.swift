@@ -38,8 +38,8 @@ private extension BasketViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            basketLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            basketLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            basketLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 63),
+            basketLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             basketView.topAnchor.constraint(equalTo: basketLabel.bottomAnchor, constant: 20),
             basketView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),

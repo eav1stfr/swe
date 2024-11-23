@@ -59,6 +59,7 @@ extension LoginPageViewController: LoginPageViewDelegate {
                 if let user = self.parseJson(userData: safeData) {
                     let defaults = UserDefaults.standard
                     defaults.set(user.token, forKey: "UserToken")
+                    defaults.set(user.role, forKey: "Role")
                     print(user.token)
                 }
             }

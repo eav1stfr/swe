@@ -128,6 +128,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchBar.placeholder = "Search here"
         searchBar.sizeToFit()
         navigationItem.titleView = searchBar
+        view.addSubview(searchBar)
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: view.topAnchor),
+            searchBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
     }
 
     func setupTableView() {
@@ -139,7 +144,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         view.addSubview(tableView)
 
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)

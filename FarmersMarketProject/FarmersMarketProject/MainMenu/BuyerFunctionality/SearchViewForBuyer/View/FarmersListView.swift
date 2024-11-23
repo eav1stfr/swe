@@ -1,6 +1,8 @@
 import UIKit
 
-final class ProductListingView: UIView {
+
+
+final class FarmersLitsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -10,49 +12,37 @@ final class ProductListingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let tableView = UITableView()
+    let tableView = UITableView()
     
-    private var tableCells: [TableProductListingCellModel] = []
+    private var farmersList: [FarmerSellingProduct] = []
 }
 
-extension ProductListingView: UITableViewDataSource {
+extension FarmersLitsView: UITableViewDelegate {
+    
+}
+
+extension FarmersLitsView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableCells.count
+        return farmersList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let customCell = tableView.dequeueReusableCell(
-            withIdentifier: "TablePLCustomCell",
+            withIdentifier: "BasketProductCell",
             for: indexPath
-        ) as? ProductListingTableCustomCell else {
+        ) as? FarmersListCustomCell else {
             return UITableViewCell()
         }
-        customCell.set(cellModel: tableCells[indexPath.row])
+        customCell.set(cell: farmersList[indexPath.row])
         return customCell
     }
 }
 
-extension ProductListingView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableCells.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-}
-
-extension ProductListingView {
-    func configure(cellList: [TableProductListingCellModel]) {
-        self.tableCells = cellList
-        tableView.reloadData()
-    }
-}
-
-private extension ProductListingView {
+extension FarmersLitsView {
     
     private func setupView() {
+        backgroundColor = .systemCyan
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .systemMint
         addSubviews()
         setupConstraints()
         addSubviewsStyle()
@@ -72,10 +62,14 @@ private extension ProductListingView {
         ])
     }
     
+    func configure(cellList: [FarmerSellingProduct]) {
+        self.farmersList = cellList
+        tableView.reloadData()
+    }
+    
     private func addSubviewsStyle() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ProductListingTableCustomCell.self, forCellReuseIdentifier: "TablePLCustomCell")
+        tableView.register(FarmersListCustomCell.self, forCellReuseIdentifier: "BasketProductCell")
     }
 }
-
