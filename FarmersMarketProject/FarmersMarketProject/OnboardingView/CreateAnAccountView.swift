@@ -4,7 +4,6 @@ import UIKit
 
 final class CreateAnAccountView: UIViewController {
     //MARK: - REGULAR VARS
-    //private let label = CustomLabel(text: "Create an account", alpha: 1.0)
     private let label: UILabel = {
         let label = UILabel()
         label.text = "Create an account"
@@ -37,7 +36,9 @@ final class CreateAnAccountView: UIViewController {
     }
     
     @objc private func buyerButtonPressed() {
-        
+        let newVC = CreateAccountViewController()
+        newVC.modalPresentationStyle = .fullScreen
+        self.present(newVC, animated: true, completion: nil )
     }
     
     private func setupButton(_ button: UIButton, _ action: Selector, _ title: String, _ color: UIColor, _ backgroundColor: UIColor) {
@@ -67,7 +68,6 @@ final class CreateAnAccountView: UIViewController {
             deliveryPhoto.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             deliveryPhoto.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -100),
             
-//            label.bottomAnchor.constraint(equalTo: stackOfButton.topAnchor, constant: -20),
             label.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             label.bottomAnchor.constraint(equalTo: stackOfButton.topAnchor, constant: -50),
             
