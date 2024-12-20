@@ -35,6 +35,8 @@ final class BasketView: UIView {
     
     private let summaryView = PaymentSummaryView()
     
+    private let table = BasketTableView()
+    
     weak var delegate: BasketViewDelegate?
     
     private let orderButton = CustomButton()
@@ -54,6 +56,7 @@ private extension BasketView {
         
         mainScrollView.addSubview(mainContentView)
         
+        mainContentView.addSubview(table)
         mainContentView.addSubview(summaryView)
         mainContentView.addSubview(orderButton)
         
@@ -77,8 +80,12 @@ private extension BasketView {
             mainContentView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor),
             mainContentView.centerYAnchor.constraint(equalTo: mainScrollView.centerYAnchor),
             
-            summaryView.centerYAnchor.constraint(equalTo: mainContentView.centerYAnchor),
-            summaryView.centerXAnchor.constraint(equalTo: mainContentView.centerXAnchor),
+            table.topAnchor.constraint(equalTo: mainContentView.topAnchor),
+            table.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor),
+            table.trailingAnchor.constraint(equalTo: mainContentView.trailingAnchor),
+            table.heightAnchor.constraint(equalToConstant: 300),
+            
+            summaryView.topAnchor.constraint(equalTo: table.bottomAnchor, constant: 20),
             summaryView.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor, constant: 10),
             summaryView.trailingAnchor.constraint(equalTo: mainContentView.trailingAnchor, constant: -10),
             summaryView.heightAnchor.constraint(equalToConstant: 200),

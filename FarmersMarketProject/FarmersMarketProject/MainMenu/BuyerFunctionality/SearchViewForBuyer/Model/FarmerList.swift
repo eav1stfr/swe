@@ -18,3 +18,8 @@ struct FarmerSellingProduct: Codable {
     var available_quantity: Int
     var price: String
 }
+
+struct ProductToAdd: Codable {
+    var farmer_product_id: Int
+    var quantity: Int
+}

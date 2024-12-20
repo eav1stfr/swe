@@ -33,8 +33,39 @@ extension FarmersLitsView: UITableViewDataSource {
         ) as? FarmersListCustomCell else {
             return UITableViewCell()
         }
+        //customCell.delegate = self
         customCell.set(cell: farmersList[indexPath.row])
         return customCell
+    }
+}
+
+extension FarmersLitsView: FarmersListDelegate {
+    func selectButtonPressed(with product: ProductToAdd) {
+        let url = URL(string: "https://farmer-market-zlmy.onrender.com/api/cart/add/")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let data = try! JSONEncoder().encode(product)
+        request.httpBody = data
+        
+        request.setValue(
+            "application/json",
+            forHTTPHeaderField: "Content-Type"
+        )
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let statusCode = (response as! HTTPURLResponse).statusCode
+            
+            if statusCode == 400 {
+                DispatchQueue.main.async {
+                    print("ERROR ADDING PRODUCt")
+                }
+            } else {
+                print("success")
+                print(statusCode)
+            }
+        }
+        
+        task.resume()
     }
 }
 

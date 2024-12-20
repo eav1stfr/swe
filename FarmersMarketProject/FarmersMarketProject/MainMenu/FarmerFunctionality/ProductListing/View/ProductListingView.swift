@@ -37,6 +37,25 @@ extension ProductListingView: UITableViewDelegate {
         if editingStyle == .delete {
             tableCells.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            print("started delete process")
+            
+            let url = URL(string: "https://farmer-market-zlmy.onrender.com/api/my-products/")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            
+            request.setValue(
+                "application/json",
+                forHTTPHeaderField: "Content-Type"
+            )
+            
+            let defaults = UserDefaults.standard
+            if let token = defaults.string(forKey: "UserToken") {
+                request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
+            } else {
+                print("error: something went wrong")
+                return
+            }
         }
     }
 }

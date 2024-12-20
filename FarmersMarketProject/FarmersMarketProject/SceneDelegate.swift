@@ -1,9 +1,3 @@
-//
-//  SceneDelegate.swift
-//  FarmersMarket
-//
-//  Created by Александр Эм on 14.10.2024.
-//
 
 import UIKit
 

@@ -24,7 +24,6 @@ final class ProductListingViewController: UIViewController {
 private extension ProductListingViewController {
     private func parseJSON() {
         print("started parsing json, retreiving product list of certain farmer")
-        let defaults = UserDefaults.standard
         
         let url = URL(string: "https://farmer-market-zlmy.onrender.com/api/my-products/")!
         var request = URLRequest(url: url)
@@ -35,6 +34,7 @@ private extension ProductListingViewController {
             forHTTPHeaderField: "Content-Type"
         )
         
+        let defaults = UserDefaults.standard
         if let token = defaults.string(forKey: "UserToken") {
             request.setValue("token \(token)", forHTTPHeaderField: "Authorization")
         } else {

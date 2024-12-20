@@ -72,7 +72,7 @@ private extension BasketProductFarmersListViewController {
 private extension BasketProductFarmersListViewController {
     
     private func parseJSON(with url: String) {
-        print("started parsing JSON")
+        print("started parsing JSON jknfsdvk")
         
         let url = URL(string: url)!
         var request = URLRequest(url: url)

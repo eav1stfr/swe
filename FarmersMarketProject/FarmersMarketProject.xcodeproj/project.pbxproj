@@ -40,6 +40,7 @@
 		AF2DFC9E2CE779C800FB4101 /* TrackSalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DFC9D2CE779C800FB4101 /* TrackSalesView.swift */; };
 		AF2DFCA02CE779D400FB4101 /* ProductCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DFC9F2CE779D400FB4101 /* ProductCategoriesViewController.swift */; };
 		AF2DFCA22CE779DD00FB4101 /* ProductSalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DFCA12CE779DD00FB4101 /* ProductSalesView.swift */; };
+		AF525F622CF62FDD0029344E /* ProductBasketTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF525F612CF62FDD0029344E /* ProductBasketTableView.swift */; };
 		AF76EFB22CC2A1E10011284A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB12CC2A1E00011284A /* CustomButton.swift */; };
 		AF76EFB52CC2BA220011284A /* ProgressIndicatorElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB42CC2BA220011284A /* ProgressIndicatorElement.swift */; };
 		AF76EFB72CC2C77D0011284A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76EFB62CC2C77D0011284A /* CustomLabel.swift */; };
@@ -52,6 +53,8 @@
 		AFA724EF2CEC8156008725F7 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA724EE2CEC8156008725F7 /* helper.swift */; };
 		AFA724F22CEC8224008725F7 /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA724F12CEC8224008725F7 /* TableCellModel.swift */; };
 		AFA724F42CEC84AC008725F7 /* TableViewCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA724F32CEC84AC008725F7 /* TableViewCustomCell.swift */; };
+		AFD2C5E82CFD9FEA007D9B19 /* BasketTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD2C5E72CFD9FEA007D9B19 /* BasketTable.swift */; };
+		AFD2C5EA2CFDA0A6007D9B19 /* BasketTableViewCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD2C5E92CFDA0A6007D9B19 /* BasketTableViewCustomCell.swift */; };
 		AFE8C7932CC030070006E477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7922CC030070006E477 /* AppDelegate.swift */; };
 		AFE8C7952CC030070006E477 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7942CC030070006E477 /* SceneDelegate.swift */; };
 		AFE8C7972CC030070006E477 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8C7962CC030070006E477 /* ViewController1.swift */; };
@@ -94,6 +97,7 @@
 		AF2DFC9D2CE779C800FB4101 /* TrackSalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSalesView.swift; sourceTree = "<group>"; };
 		AF2DFC9F2CE779D400FB4101 /* ProductCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoriesViewController.swift; sourceTree = "<group>"; };
 		AF2DFCA12CE779DD00FB4101 /* ProductSalesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSalesView.swift; sourceTree = "<group>"; };
+		AF525F612CF62FDD0029344E /* ProductBasketTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBasketTableView.swift; sourceTree = "<group>"; };
 		AF76EFB12CC2A1E00011284A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AF76EFB42CC2BA220011284A /* ProgressIndicatorElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorElement.swift; sourceTree = "<group>"; };
 		AF76EFB62CC2C77D0011284A /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		AFA724EE2CEC8156008725F7 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		AFA724F12CEC8224008725F7 /* TableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
 		AFA724F32CEC84AC008725F7 /* TableViewCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCustomCell.swift; sourceTree = "<group>"; };
+		AFD2C5E72CFD9FEA007D9B19 /* BasketTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTable.swift; sourceTree = "<group>"; };
+		AFD2C5E92CFDA0A6007D9B19 /* BasketTableViewCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCustomCell.swift; sourceTree = "<group>"; };
 		AFE8C78F2CC030070006E477 /* FarmersMarketProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarmersMarketProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE8C7922CC030070006E477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE8C7942CC030070006E477 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,8 +154,10 @@
 		AF2178C82CEDD87A00E498D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AFD2C5E62CFD9FE0007D9B19 /* Table */,
 				AF2178CD2CEDE06200E498D7 /* PaymentSummaryView.swift */,
 				AF2178E92CEF6A6400E498D7 /* BasketView.swift */,
+				AF525F612CF62FDD0029344E /* ProductBasketTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,6 +526,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AFD2C5E62CFD9FE0007D9B19 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				AFD2C5E72CFD9FEA007D9B19 /* BasketTable.swift */,
+				AFD2C5E92CFDA0A6007D9B19 /* BasketTableViewCustomCell.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
 		AFE8C7862CC030070006E477 = {
 			isa = PBXGroup;
 			children = (
@@ -635,9 +652,11 @@
 				AF23A7512CE364A60096BE17 /* CreateAnAccountController.swift in Sources */,
 				AF2178E62CEF43DF00E498D7 /* CreateProductViewController.swift in Sources */,
 				AF76EFB92CC2D1580011284A /* CustomImageView.swift in Sources */,
+				AF525F622CF62FDD0029344E /* ProductBasketTableView.swift in Sources */,
 				AF97766C2CCD78F2006244E4 /* CustomTextFieldElement.swift in Sources */,
 				AF2DFC882CE7387600FB4101 /* LoginPageView.swift in Sources */,
 				AF2178F82CEFC85600E498D7 /* ProductListingCustomCell.swift in Sources */,
+				AFD2C5EA2CFDA0A6007D9B19 /* BasketTableViewCustomCell.swift in Sources */,
 				AF2DFC9C2CE779C000FB4101 /* TrackSalesViewController.swift in Sources */,
 				AFA2F1A72CD15C7D00A8C96E /* ShippingAddressView.swift in Sources */,
 				AF2178F22CEFB8A600E498D7 /* ProductListingViewController.swift in Sources */,
@@ -666,6 +685,7 @@
 				AFA2F1AD2CD15F0A00A8C96E /* PaymentMethodView.swift in Sources */,
 				AF2178F62CEFC78100E498D7 /* TableProductListingCellModel.swift in Sources */,
 				AF2178D02CEDF1A200E498D7 /* UserModel.swift in Sources */,
+				AFD2C5E82CFD9FEA007D9B19 /* BasketTable.swift in Sources */,
 				AF2DFC862CE7386700FB4101 /* LoginPageViewController.swift in Sources */,
 				AFE8C7952CC030070006E477 /* SceneDelegate.swift in Sources */,
 				AFE8C7A72CC0320C0006E477 /* CreateAnAccountView.swift in Sources */,
@@ -811,6 +831,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FF694563Z9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FarmersMarketProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -837,6 +858,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FF694563Z9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FarmersMarketProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

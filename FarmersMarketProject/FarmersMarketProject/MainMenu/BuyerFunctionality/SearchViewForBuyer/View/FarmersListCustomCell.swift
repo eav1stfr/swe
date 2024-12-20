@@ -1,7 +1,11 @@
 import UIKit
 
+protocol FarmersListDelegate: AnyObject {
+    func selectButtonPressed(with product: ProductToAdd)
+}
+
 final class FarmersListCustomCell: UITableViewCell {
-        
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -10,6 +14,8 @@ final class FarmersListCustomCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    weak var delegate: FarmersListDelegate?
     
     private let dict: Dictionary<Int, String> = [1: "Banana", 3: "Apple", 4: "Orange", 5: "Grape", 6: "Mango", 7: "Carrot", 8: "Potato", 9: "Onion", 10: "Cucumber", 11: "Pepper", 12: "Button Mushroom", 13: "Portobello", 14: "Shiitake", 15: "Chantereller", 16: "Enoki", 17: "Milk", 18: "Cheese", 19: "Butter", 20: "Yogurt", 21: "Cream", 22: "Oatmeal"]
     
@@ -46,7 +52,7 @@ final class FarmersListCustomCell: UITableViewCell {
         return label
     }()
     
-    private let addButton: UIButton = {
+    private lazy var addButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 25
@@ -55,6 +61,7 @@ final class FarmersListCustomCell: UITableViewCell {
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button.backgroundColor = UIColor(named: "Color")!
+        button.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
         return button
     }()
 }
@@ -70,6 +77,13 @@ extension FarmersListCustomCell {
         availableQuantityLabel.text! += String(cell.available_quantity)
         priceLabel.text = cell.price + "$"
     }
+    
+    @objc private func addButtonPressed() {
+        let num: Int = Int(availableQuantityLabel.text!) ?? 0
+        let product = ProductToAdd(farmer_product_id: 1, quantity: num)
+        print("SELECT BUTTON PRESSED")
+        delegate?.selectButtonPressed(with: product)
+    }
 }
 
 private extension FarmersListCustomCell {
@@ -77,6 +91,8 @@ private extension FarmersListCustomCell {
     private func setupView() {
         addSubviews()
         setupConstraints()
+        selectionStyle = .none
+        addButton.isUserInteractionEnabled = true
     }
     
     private func addSubviews() {

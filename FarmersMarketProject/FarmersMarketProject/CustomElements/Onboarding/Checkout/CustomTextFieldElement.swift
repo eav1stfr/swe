@@ -37,5 +37,4 @@ final class TextFieldView: UITextField {
     private func setupConstraints() {
         heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
-    
 }
