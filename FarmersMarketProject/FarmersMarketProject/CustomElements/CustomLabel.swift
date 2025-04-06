@@ -31,3 +31,44 @@ class CustomLabel: UILabel {
         translatesAutoresizingMaskIntoConstraints = false
     }
 }
+
+//class CustomLabel: UILabel {
+//    var textOfLabel: String? {
+//        didSet {
+//            super.text = textOfLabel
+//        }
+//    }
+//
+//    var textColorOfLabel: UIColor? {
+//        didSet {
+//            super.textColor = textColorOfLabel
+//        }
+//    }
+//
+//    var alphaOfLabel: CGFloat = 1.0 {
+//        didSet {
+//            super.alpha = alphaOfLabel
+//        }
+//    }
+//
+//    var fontSize: CGFloat? {
+//        didSet {
+//            super.font = UIFont.systemFont(ofSize: fontSize ?? 20, weight: .heavy)
+//        }
+//    }
+//
+//    override init(frame: CGRect = .zero) {
+//        super.init(frame: frame)
+//
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//    private func setupCustomLabel() {
+//        numberOfLines = 2
+//        textAlignment = .center
+//        translatesAutoresizingMaskIntoConstraints = false
+//    }
+//}
